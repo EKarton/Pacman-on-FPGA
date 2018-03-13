@@ -1,0 +1,2 @@
+# pacman-in-fpga
+An FPGA version of Pacman! Without a computer, users can plug in their DE2 Altera boards to their monitors and play an amazing, game of Pacman! Users can move Pacman with the four button keys on the FPGA. The user wins when Pacman has collected all of the yellow orbes. But the user needs to be careful; Pacman will die when he gets caught by one of the four ghosts! This project was made as a final course project for CSC 258: Computer Organization
