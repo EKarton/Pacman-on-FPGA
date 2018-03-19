@@ -80,7 +80,7 @@ module MainModule(
 	
 		
 	wire game_clock;
-	RateDivider game_clock_counter(27'd833, reset, en, CLOCK_50, game_clock);
+	RateDivider game_clock_counter(27'd833, reset, 1'b1, CLOCK_50, game_clock);
 	
 	// The map data
 	wire grid_x;
@@ -88,7 +88,7 @@ module MainModule(
 	wire grid_data_in;
 	wire grid_data_out;
 	wire grid_readwrite;
-	GridRegister grid_registers(grid_x, grid_y, grid_data_in, grid_data_out, grid_readwrite, clock_50, reset);
+	MapController map(grid_x, grid_y, grid_data_in, grid_data_out, grid_readwrite, clock_50, reset);
 	
 	// The display controller, which runs at 60 fps
 	MapDisplayController(game_clock, grid_x, grid_y, grid_data_out, 1'b1, vga_plot, vga_x, vga_y, reset, clock_50);

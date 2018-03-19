@@ -1,5 +1,5 @@
 Flow report for Pacman
-Mon Mar 19 12:50:22 2018
+Mon Mar 19 17:45:29 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Standard Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Mon Mar 19 12:50:06 2018           ;
+; Flow Status                     ; Successful - Mon Mar 19 17:45:15 2018           ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Standard Edition ;
 ; Revision Name                   ; Pacman                                          ;
 ; Top-level Entity Name           ; Pacman                                          ;
@@ -68,28 +68,28 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/19/2018 12:48:49 ;
+; Start date & time ; 03/19/2018 17:44:03 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Pacman              ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                               ;
-+-------------------------------------+---------------------------------------------------------------+---------------+-------------+------------+
-; Assignment Name                     ; Value                                                         ; Default Value ; Entity Name ; Section Id ;
-+-------------------------------------+---------------------------------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 167746773791345.152147812902448                               ; --            ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                                            ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                                             ; --            ; --          ; --         ;
-; MISC_FILE                           ; //SRVC/Homes$/smealjus/Desktop/pacman-from-fpga/src/Grid_bb.v ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family)                        ; --            ; --          ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                        ; --            ; --          ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                        ; --            ; --          ; Top        ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                           ; --            ; --          ; --         ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                         ; --            ; --          ; --         ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                  ; --            ; --          ; --         ;
-+-------------------------------------+---------------------------------------------------------------+---------------+-------------+------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                              ;
++-------------------------------------+--------------------------------------------------------------+---------------+-------------+------------+
+; Assignment Name                     ; Value                                                        ; Default Value ; Entity Name ; Section Id ;
++-------------------------------------+--------------------------------------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID               ; 167746773791627.152149584303368                              ; --            ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                           ; --            ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Map_bb.v ; --            ; --          ; --         ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                       ; --            ; --          ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                       ; --            ; --          ; Top        ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                       ; --            ; --          ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                          ; --            ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                        ; --            ; --          ; --         ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                 ; --            ; --          ; --         ;
++-------------------------------------+--------------------------------------------------------------+---------------+-------------+------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -97,11 +97,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:16     ; 1.0                     ; 675 MB              ; 00:00:24                           ;
-; Fitter                    ; 00:00:39     ; 1.0                     ; 2587 MB             ; 00:01:02                           ;
-; Assembler                 ; 00:00:09     ; 1.0                     ; 699 MB              ; 00:00:07                           ;
-; TimeQuest Timing Analyzer ; 00:00:13     ; 1.0                     ; 1034 MB             ; 00:00:07                           ;
-; Total                     ; 00:01:17     ; --                      ; --                  ; 00:01:40                           ;
+; Analysis & Synthesis      ; 00:00:15     ; 1.0                     ; 677 MB              ; 00:00:23                           ;
+; Fitter                    ; 00:00:37     ; 1.0                     ; 2529 MB             ; 00:00:59                           ;
+; Assembler                 ; 00:00:08     ; 1.0                     ; 696 MB              ; 00:00:07                           ;
+; TimeQuest Timing Analyzer ; 00:00:12     ; 1.0                     ; 1034 MB             ; 00:00:07                           ;
+; Total                     ; 00:01:12     ; --                      ; --                  ; 00:01:36                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -110,10 +110,10 @@ agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; SFB520WS24       ; Windows 7 ; 6.1        ; x86_64         ;
-; Fitter                    ; SFB520WS24       ; Windows 7 ; 6.1        ; x86_64         ;
-; Assembler                 ; SFB520WS24       ; Windows 7 ; 6.1        ; x86_64         ;
-; TimeQuest Timing Analyzer ; SFB520WS24       ; Windows 7 ; 6.1        ; x86_64         ;
+; Analysis & Synthesis      ; SFB520WS32       ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; SFB520WS32       ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; SFB520WS32       ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; SFB520WS32       ; Windows 7 ; 6.1        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

@@ -7,10 +7,10 @@ module MapDisplayController(
 	output reg [4:0] y_out, 
 	input [3:0] type, 
 	input en,
-	output vga_plot, 
-	output [7:0] vga_x,
-	output [7:0] vga_y,
-	output [2:0] vga_color,
+	output reg vga_plot, 
+	output reg [7:0] vga_x,
+	output reg [7:0] vga_y,
+	output reg [2:0] vga_color,
 	input reset, 
 	input clock_50);
 
@@ -20,7 +20,8 @@ module MapDisplayController(
 		if (reset == 1'b1 || y_out == 5'd20) 
 		begin
 			x_out <= 5'd0;
-			y_out <= 5'd0;			
+			y_out <= 5'd0;	
+			vga_plot <= 1'b0;
 		end
 		else 
 		begin
@@ -28,99 +29,32 @@ module MapDisplayController(
 			begin
 				x_out <= 5'd0;
 				y_out <= y_out + 5'd1;
+				vga_plot <= 1'b1;
 			end
 			else 
 			begin
 				x_out <= x_out + 5'd1;				
 				y_out <= y_out;
+				vga_plot <= 1'b1;
 			end			
 		end
 	end
-endmodule
-
-module DrawSquare(
-	input [4:0] left_x,
-	input [4:0] top_y, 
-	input [4:0] size, 
-	input en,
-	input reset, 
-	input clock_50, 
-	output reg [7:0] vga_x, 
-	output reg [6:0] vga_y, 
-	output reg vga_plot,
-	output reg done);
-
-	reg [4:0] offset_x;
-	reg [4:0] offset_y;
-
-	always @(posedge clock_50) 
-	begin
-		if (en == 1'b0 || reset == 1'b1) 
-		begin
-			offset_x <= 5'd0;
-			offset_y <= 5'd0;
-			vga_plot <= 1'b1;
-			done <= 1'b0;
-		end
-		else if (en == 1'b1)
-		begin
-			// When it has finished iterating through the pixels of the square
-			if (offset_y == size)
-			begin
-				offset_x <= 5'd0;
-				offset_y <= 5'd0;
-				done <= 1'b1;
-			end
-
-			// Incrememting the offset_y
-			else if (offset_x == size && offset_y < size)
-			begin
-				offset_x <= 5'd0;
-				offset_y <= offset_y + 5'd1;
-			end
-
-			// Incrementing the offset_x
-			else 
-			begin
-				offset_x <= offset_x + 5'd1;				
-				offset_y <= offset_y;
-			end	
-		end
-	end
 	
-endmodule
-
-module DrawSmallCircle(
-	input [4:0] left_x,
-	input [4:0] top_y,
-	input en,
-	input reset, 
-	input clock_50, 
-	output reg [7:0] vga_x, 
-	output reg [6:0] vga_y, 
-	output reg vga_plot,
-	output reg done);
-
-	reg [6:0] pixel_0;
-	reg [6:0] pixel_1;
-	reg [6:0] pixel_2;
-	reg [6:0] pixel_3;
-	reg [6:0] pixel_4;
-	reg [6:0] pixel_5;
-	reg [6:0] pixel_6;
-
-	always @(posedge clock_50) 
+	always @(posedge clock_50)
 	begin
-		if (reset == 1'b1) 
+		if (reset == 1'b1)
 		begin
-			pixel_0 <= 7'b0000000;
-			pixel_1 <= 7'b0000000;
-			pixel_2 <= 7'b0000000;
-			pixel_3 <= 7'b0000000;
-			pixel_4 <= 7'b0000000;
-			pixel_5 <= 7'b0000000;
-			pixel_6 <= 7'b0000000;			
+			vga_color <= 3'b00;
+		end
+		else
+		begin
+			case (type)
+				3'd0: vga_color <= 3'b000; // Black tile
+				3'd3: vga_color <= 3'b001; // Blue tile
+				3'd2: vga_color <= 3'b111; // Small orb tile
+				3'd1: vga_color <= 3'b111; // Big orb tile
+				3'd4: vga_color <= 3'b100; // Grey tile
+			endcase
 		end
 	end
-
 endmodule

@@ -1,5 +1,5 @@
 Fitter report for Pacman
-Mon Mar 19 12:49:49 2018
+Mon Mar 19 17:44:58 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Standard Edition
 
 
@@ -64,7 +64,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                    ;
 +---------------------------------+-------------------------------------------------+
-; Fitter Status                   ; Successful - Mon Mar 19 12:49:49 2018           ;
+; Fitter Status                   ; Successful - Mon Mar 19 17:44:58 2018           ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Standard Edition ;
 ; Revision Name                   ; Pacman                                          ;
 ; Top-level Entity Name           ; Pacman                                          ;
@@ -382,7 +382,7 @@ agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in //SRVC/Homes$/smealjus/Desktop/pacman-from-fpga/src/output_files/Pacman.pin.
+The pin-out file can be found in //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/output_files/Pacman.pin.
 
 
 +------------------------------------------------------------------------------------------+
@@ -2263,7 +2263,7 @@ Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors
 Info (119006): Selected device 5CSEMA5F31C6 for design "Pacman"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
-Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: //SRVC/Homes$/smealjus/Desktop/pacman-from-fpga/src/db/altpll_80u.tdf Line: 34
+Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/db/altpll_80u.tdf Line: 34
     Info: Must be connected
 Warning (21300): LOCKED port on the PLL is not properly connected on instance "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1". The LOCKED port on the PLL should be connected when the FBOUTCLK port is connected. Although it is unnecessary to connect the LOCKED signal, any logic driven off of an output clock of the PLL will not know when the PLL is locked and ready.
 Warning (18550): Found RAM instances implemented as ROM because the write logic is disabled. One instance is listed below as an example.
@@ -2471,24 +2471,24 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.41 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.35 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:05
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:04
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
-Info (144001): Generated suppressed messages file //SRVC/Homes$/smealjus/Desktop/pacman-from-fpga/src/output_files/Pacman.fit.smsg
+Info (144001): Generated suppressed messages file //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/output_files/Pacman.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 172 warnings
-    Info: Peak virtual memory: 2587 megabytes
-    Info: Processing ended: Mon Mar 19 12:49:52 2018
-    Info: Elapsed time: 00:00:42
-    Info: Total CPU time (on all processors): 00:01:03
+    Info: Peak virtual memory: 2529 megabytes
+    Info: Processing ended: Mon Mar 19 17:45:01 2018
+    Info: Elapsed time: 00:00:40
+    Info: Total CPU time (on all processors): 00:01:00
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in //SRVC/Homes$/smealjus/Desktop/pacman-from-fpga/src/output_files/Pacman.fit.smsg.
+The suppressed messages can be found in //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/output_files/Pacman.fit.smsg.
 
 

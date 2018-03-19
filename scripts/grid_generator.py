@@ -22,7 +22,32 @@ map = [
 	[0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0]
 ];
 
-def main():
+def genrerate_mif():
+	output = "WIDTH=3;\n"
+	output += "DEPTH=512;\n"
+	output += "\n"
+	output += "ADDRESS_RADIX=BIN;\n"
+	output += "DATA_RADIX=BIN;\n"
+	output += "\n"
+
+	output += "CONTENT BEGIN\n"
+	cur_address = 0;
+	for i in range(0, 21):
+		for j in range(0, 21):
+			type_binary = '{0:03b}'.format(map[i][j])
+			address_binary = '{0:09b}'.format(cur_address)
+			output += "\t" + str(address_binary) + "\t : \t" + str(type_binary) + "\n";
+			cur_address += 1
+
+	output += "END;\n"
+
+
+	text_file = open("MapData.mif", "w")
+	text_file.write(output)
+	text_file.close()
+
+
+def run_verlog():
 	output = "reg [8:0] next_state\n"
 	output += "always @(*)\n"
 	output += "begin\n"
@@ -75,4 +100,4 @@ def main():
 	text_file.close()
 
 
-main()
+genrerate_mif()
