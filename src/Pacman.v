@@ -65,7 +65,7 @@ module Pacman(
 	defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
 	defparam VGA.BACKGROUND_IMAGE = "black.mif";
 	
-	MainModule main_module(KEY[3:0], CLOCK_50, SW[9], colour, x, y, plot);
+	MainModule main_module(KEY[3:0], CLOCK_50, SW[9], colour, x, y, plot, LEDR, HEX0);
 	
 endmodule
 
@@ -76,11 +76,16 @@ module MainModule(
 	output [2:0] colour, 
 	output [8:0] vga_x, 
 	output [7:0] vga_y, 
-	output vga_plot);
+	output vga_plot,
+	output [9:0] ledr,
+	output [6:0] hex0);
 	
 		
 	wire game_clock;
 	RateDivider game_clock_counter(27'd833, reset, 1'b1, CLOCK_50, game_clock);
+
+	assign ledr[0] = game_clock;
+	assign ledr[1] = vga_plot;
 	
 	// The map data
 	wire grid_x;
