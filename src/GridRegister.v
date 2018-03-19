@@ -9,14 +9,29 @@ module GridRegister(
 	input [4:0] x, 
 	input [4:0] y, 
 	input [2:0] data_in, 
-	output reg [2:0] data_out, 
+	output [2:0] data_out, 
 	input readwrite, 
 	input clock_50, 
 	input reset_n);
 
 	wire [8:0] address;
 	assign address = 20 * {15'd0, y} + {15'd0, x};
+	
+	reg [8:0] cur_reset_state;
+	reg [8:0] cur_reset_address;
+	reg [2:0] cur_reset_type;
+	
+	always @(posedge clock_50)
+	begin
+		if (reset_n == 1'b1)
+		begin
+			case (cur_reset_state)
+				1'd1: cur_reset_address <= 1'd1;
+				1'd2: cur_reset_address <= ???;
+				1'd3: cur_reset_address <= 
+			endcase
+		end		
+	end
 
 	Grid grid(address, clock_50, data_in, readwrite, data_out);	
-
 endmodule

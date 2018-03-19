@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at RateDivider.v(18): always construct contains both blocking and non-blocking assignments File: //SRVC/Homes$/smealjus/Desktop/pacman-from-fpga/src/RateDivider.v Line: 18
