@@ -46,12 +46,12 @@ module Pacman(
 	// Define the number of colours as well as the initial background
 	// image file (.MIF) for the controller.
 	vga_adapter VGA(
-			.resetn(resetn),
+			.resetn(reset),
 			.clock(CLOCK_50),
 			.colour(colour),
-			.x(x),
-			.y(y),
-			.plot(plot),
+			.x(1'b1),
+			.y(1'b1),
+			.plot(1'b1),
 			.VGA_R(VGA_R),
 			.VGA_G(VGA_G),
 			.VGA_B(VGA_B),
@@ -65,7 +65,9 @@ module Pacman(
 	defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
 	defparam VGA.BACKGROUND_IMAGE = "black.mif";
 	
-	MainModule main_module(KEY[3:0], CLOCK_50, SW[9], colour, x, y, plot, LEDR, HEX0);
+	assign LEDR[7:0] = x;
+	
+	MainModule main_module(KEY[3:0], CLOCK_50, reset, colour, x, y, plot);
 	
 endmodule
 
@@ -74,18 +76,13 @@ module MainModule(
 	input clock_50, 
 	input reset,
 	output [2:0] colour, 
-	output [8:0] vga_x, 
-	output [7:0] vga_y, 
-	output vga_plot,
-	output [9:0] ledr,
-	output [6:0] hex0);
+	output [7:0] vga_x, 
+	output [6:0] vga_y, 
+	output vga_plot);
 	
 		
 	wire game_clock;
-	RateDivider game_clock_counter(27'd833, reset, 1'b1, CLOCK_50, game_clock);
-
-	assign ledr[0] = game_clock;
-	assign ledr[1] = vga_plot;
+	RateDivider game_clock_counter(27'd833, 1'b1, 1'b1, CLOCK_50, game_clock);
 	
 	// The map data
 	wire grid_x;
@@ -93,9 +90,12 @@ module MainModule(
 	wire grid_data_in;
 	wire grid_data_out;
 	wire grid_readwrite;
-	MapController map(grid_x, grid_y, grid_data_in, grid_data_out, grid_readwrite, clock_50, reset);
+	assign grid_readwrite = 1'b0;
+	
+	MapController map(grid_x, grid_y, grid_data_in, grid_data_out, grid_readwrite, clock_50, 1'b1);
+	
 	
 	// The display controller, which runs at 60 fps
-	MapDisplayController(game_clock, grid_x, grid_y, grid_data_out, 1'b1, vga_plot, vga_x, vga_y, reset, clock_50);
+	MapDisplayController(clock_50, grid_x, grid_y, grid_data_out, reset, vga_plot, vga_x, vga_y, reset, clock_50);
 	
 endmodule

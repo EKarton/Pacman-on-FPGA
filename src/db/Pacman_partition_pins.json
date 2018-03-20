@@ -4,6 +4,18 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "VGA_HS",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_VS",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_BLANK_N",
+					"strict" : false
+				},
+				{
 					"name" : "VGA_R[0]",
 					"strict" : false
 				},
@@ -125,6 +137,10 @@
 				},
 				{
 					"name" : "CLOCK_50",
+					"strict" : false
+				},
+				{
+					"name" : "SW[9]",
 					"strict" : false
 				}
 			]
