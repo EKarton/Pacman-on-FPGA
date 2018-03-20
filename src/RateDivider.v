@@ -1,6 +1,7 @@
 /*
 	A rate dividor which slows down the clock signal by an interval, i.e,
-	the rate dividor ticks when the clock signal ticks for the interval amount.
+	the rate dividor ticks (i.e, flips from 1 to 0, 0 to 1, etc.) 
+	when the clock signal ellapsed for a certain interval amount.
 
 	When reset_n = 1, it resets the rate dividor.
 	The reduced_clock is the slowed down clock signal.
@@ -8,22 +9,26 @@
  */
 module RateDivider(
 	input [27:0] interval,
-	input reset_n,
+	input reset,
 	input en,
 	input clock_50,
-	output reduced_clock);
+	output reg reduced_clock);
 
 	reg [27:0] cur_time;
 
-	always @(posedge clock, negedge reset, load, enable)
+	always @(posedge clock_50)
 	begin
 		if (reset == 1'b1)
+		begin
 			cur_time <= interval;
+			reduced_clock <= 1'b0;
+		end
 		else if (en == 1'b1)
 		begin
-			if (cur_time == 27'd0) // Prevent going to negative #s
+			if (cur_time == 27'd1) // Prevent going to negative #s
 			begin
-				cur_time = 27'd0;
+				cur_time <= interval;
+				reduced_clock <= ~reduced_clock;
 			end
 			else
 			begin
@@ -31,7 +36,4 @@ module RateDivider(
 			end
 		end
 	end
-
-	// Tick when cur_time == 0.
-	assign reduced_clock = cur_time * 28'b0;
 endmodule

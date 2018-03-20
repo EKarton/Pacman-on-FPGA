@@ -1,6 +1,3 @@
-/*
- Converts a 4 bit binary number to hexadecimal and outputs them into a hex display.
- */
 module HexDisplay(hex_digit, segments);
     input [3:0] hex_digit;
     output reg [6:0] segments;
