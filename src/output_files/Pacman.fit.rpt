@@ -1,5 +1,5 @@
 Fitter report for Pacman
-Mon Mar 19 20:21:30 2018
+Tue Mar 20 18:29:24 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Standard Edition
 
 
@@ -66,15 +66,15 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                    ;
 +---------------------------------+-------------------------------------------------+
-; Fitter Status                   ; Successful - Mon Mar 19 20:21:30 2018           ;
+; Fitter Status                   ; Successful - Tue Mar 20 18:29:24 2018           ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Standard Edition ;
 ; Revision Name                   ; Pacman                                          ;
 ; Top-level Entity Name           ; Pacman                                          ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CSEMA5F31C6                                    ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 26 / 32,070 ( < 1 % )                           ;
-; Total registers                 ; 36                                              ;
+; Logic utilization (in ALMs)     ; 108 / 32,070 ( < 1 % )                          ;
+; Total registers                 ; 80                                              ;
 ; Total pins                      ; 102 / 457 ( 22 % )                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 57,600 / 4,065,280 ( 1 % )                      ;
@@ -95,9 +95,10 @@ agreement for further details.
 ; Option                                                                     ; Setting                               ; Default Value                         ;
 +----------------------------------------------------------------------------+---------------------------------------+---------------------------------------+
 ; Device                                                                     ; 5CSEMA5F31C6                          ;                                       ;
+; Use smart compilation                                                      ; On                                    ; Off                                   ;
+; Maximum processors allowed for parallel compilation                        ; All                                   ;                                       ;
 ; Minimum Core Junction Temperature                                          ; 0                                     ;                                       ;
 ; Maximum Core Junction Temperature                                          ; 85                                    ;                                       ;
-; Use smart compilation                                                      ; Off                                   ; Off                                   ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                                    ; On                                    ;
 ; Enable compact report table                                                ; Off                                   ; Off                                   ;
 ; Router Timing Optimization Level                                           ; Normal                                ; Normal                                ;
@@ -156,14 +157,14 @@ agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.02        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.4%      ;
-;     Processor 3            ;   0.4%      ;
-;     Processor 4            ;   0.4%      ;
+;     Processor 2            ;   0.7%      ;
+;     Processor 3            ;   0.7%      ;
+;     Processor 4            ;   0.7%      ;
 +----------------------------+-------------+
 
 
@@ -174,11 +175,11 @@ agreement for further details.
 +------------------------------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+-----------------------------------------------------------------+------------------+-----------------------+
 ; vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|clk[0]~CLKENA0 ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                                 ;                  ;                       ;
 ; CLOCK_50~inputCLKENA0                                                                          ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                                 ;                  ;                       ;
+; vga_adapter:VGA|vga_controller:controller|xCounter[2]                                          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; vga_adapter:VGA|vga_controller:controller|xCounter[2]~DUPLICATE ;                  ;                       ;
 ; vga_adapter:VGA|vga_controller:controller|xCounter[5]                                          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; vga_adapter:VGA|vga_controller:controller|xCounter[5]~DUPLICATE ;                  ;                       ;
 ; vga_adapter:VGA|vga_controller:controller|xCounter[7]                                          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; vga_adapter:VGA|vga_controller:controller|xCounter[7]~DUPLICATE ;                  ;                       ;
 ; vga_adapter:VGA|vga_controller:controller|xCounter[8]                                          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; vga_adapter:VGA|vga_controller:controller|xCounter[8]~DUPLICATE ;                  ;                       ;
 ; vga_adapter:VGA|vga_controller:controller|yCounter[6]                                          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; vga_adapter:VGA|vga_controller:controller|yCounter[6]~DUPLICATE ;                  ;                       ;
-; vga_adapter:VGA|vga_controller:controller|yCounter[8]                                          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; vga_adapter:VGA|vga_controller:controller|yCounter[8]~DUPLICATE ;                  ;                       ;
 ; vga_adapter:VGA|vga_controller:controller|yCounter[9]                                          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; vga_adapter:VGA|vga_controller:controller|yCounter[9]~DUPLICATE ;                  ;                       ;
 +------------------------------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+-----------------------------------------------------------------+------------------+-----------------------+
 
@@ -359,8 +360,8 @@ agreement for further details.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 298 ) ; 0.00 % ( 0 / 298 )         ; 0.00 % ( 0 / 298 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 298 ) ; 0.00 % ( 0 / 298 )         ; 0.00 % ( 0 / 298 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 484 ) ; 0.00 % ( 0 / 484 )         ; 0.00 % ( 0 / 484 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 484 ) ; 0.00 % ( 0 / 484 )         ; 0.00 % ( 0 / 484 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -383,7 +384,7 @@ agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 288 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 474 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 10 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -391,7 +392,7 @@ agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files/Pacman.pin.
+The pin-out file can be found in //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/output_files/Pacman.pin.
 
 
 +------------------------------------------------------------------------------------------+
@@ -399,14 +400,14 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 +-------------------------------------------------------------+--------------------+-------+
 ; Resource                                                    ; Usage              ; %     ;
 +-------------------------------------------------------------+--------------------+-------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 26 / 32,070        ; < 1 % ;
-; ALMs needed [=A-B+C]                                        ; 26                 ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 30 / 32,070        ; < 1 % ;
-;         [a] ALMs used for LUT logic and registers           ; 13                 ;       ;
-;         [b] ALMs used for LUT logic                         ; 14                 ;       ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 108 / 32,070       ; < 1 % ;
+; ALMs needed [=A-B+C]                                        ; 108                ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 111 / 32,070       ; < 1 % ;
+;         [a] ALMs used for LUT logic and registers           ; 34                 ;       ;
+;         [b] ALMs used for LUT logic                         ; 74                 ;       ;
 ;         [c] ALMs used for registers                         ; 3                  ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                  ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 4 / 32,070         ; < 1 % ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 3 / 32,070         ; < 1 % ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32,070         ; 0 %   ;
 ;         [a] Due to location constrained logic               ; 0                  ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                  ;       ;
@@ -415,24 +416,24 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ;                                                             ;                    ;       ;
 ; Difficulty packing design                                   ; Low                ;       ;
 ;                                                             ;                    ;       ;
-; Total LABs:  partially or completely used                   ; 4 / 3,207          ; < 1 % ;
-;     -- Logic LABs                                           ; 4                  ;       ;
+; Total LABs:  partially or completely used                   ; 18 / 3,207         ; < 1 % ;
+;     -- Logic LABs                                           ; 18                 ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                  ;       ;
 ;                                                             ;                    ;       ;
-; Combinational ALUT usage for logic                          ; 49                 ;       ;
+; Combinational ALUT usage for logic                          ; 191                ;       ;
 ;     -- 7 input functions                                    ; 0                  ;       ;
-;     -- 6 input functions                                    ; 1                  ;       ;
-;     -- 5 input functions                                    ; 10                 ;       ;
-;     -- 4 input functions                                    ; 2                  ;       ;
-;     -- <=3 input functions                                  ; 36                 ;       ;
-; Combinational ALUT usage for route-throughs                 ; 1                  ;       ;
+;     -- 6 input functions                                    ; 24                 ;       ;
+;     -- 5 input functions                                    ; 19                 ;       ;
+;     -- 4 input functions                                    ; 34                 ;       ;
+;     -- <=3 input functions                                  ; 114                ;       ;
+; Combinational ALUT usage for route-throughs                 ; 2                  ;       ;
 ;                                                             ;                    ;       ;
-; Dedicated logic registers                                   ; 36                 ;       ;
+; Dedicated logic registers                                   ; 80                 ;       ;
 ;     -- By type:                                             ;                    ;       ;
-;         -- Primary logic registers                          ; 30 / 64,140        ; < 1 % ;
+;         -- Primary logic registers                          ; 74 / 64,140        ; < 1 % ;
 ;         -- Secondary logic registers                        ; 6 / 64,140         ; < 1 % ;
 ;     -- By function:                                         ;                    ;       ;
-;         -- Design implementation registers                  ; 30                 ;       ;
+;         -- Design implementation registers                  ; 74                 ;       ;
 ;         -- Routing optimization registers                   ; 6                  ;       ;
 ;                                                             ;                    ;       ;
 ; Virtual pins                                                ; 0                  ;       ;
@@ -488,105 +489,105 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; Oscillator blocks                                           ; 0 / 1              ; 0 %   ;
 ; Impedance control blocks                                    ; 0 / 4              ; 0 %   ;
 ; Hard Memory Controllers                                     ; 0 / 2              ; 0 %   ;
-; Average interconnect usage (total/H/V)                      ; 0.1% / 0.1% / 0.0% ;       ;
-; Peak interconnect usage (total/H/V)                         ; 1.4% / 1.6% / 0.8% ;       ;
-; Maximum fan-out                                             ; 198                ;       ;
-; Highest non-global fan-out                                  ; 198                ;       ;
-; Total fan-out                                               ; 557                ;       ;
-; Average fan-out                                             ; 1.83               ;       ;
+; Average interconnect usage (total/H/V)                      ; 0.2% / 0.2% / 0.3% ;       ;
+; Peak interconnect usage (total/H/V)                         ; 5.1% / 5.4% / 4.4% ;       ;
+; Maximum fan-out                                             ; 52                 ;       ;
+; Highest non-global fan-out                                  ; 49                 ;       ;
+; Total fan-out                                               ; 1298               ;       ;
+; Average fan-out                                             ; 2.64               ;       ;
 +-------------------------------------------------------------+--------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Fitter Partition Statistics                                                                                         ;
-+-------------------------------------------------------------+----------------------+--------------------------------+
-; Statistic                                                   ; Top                  ; hard_block:auto_generated_inst ;
-+-------------------------------------------------------------+----------------------+--------------------------------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 26 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-; ALMs needed [=A-B+C]                                        ; 26                   ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 30 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 13                   ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 14                   ; 0                              ;
-;         [c] ALMs used for registers                         ; 3                    ; 0                              ;
-;         [d] ALMs used for memory (up to half of total ALMs) ; 0                    ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 4 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32070 ( 0 % )    ; 0 / 32070 ( 0 % )              ;
-;         [a] Due to location constrained logic               ; 0                    ; 0                              ;
-;         [b] Due to LAB-wide signal conflicts                ; 0                    ; 0                              ;
-;         [c] Due to LAB input limits                         ; 0                    ; 0                              ;
-;         [d] Due to virtual I/Os                             ; 0                    ; 0                              ;
-;                                                             ;                      ;                                ;
-; Difficulty packing design                                   ; Low                  ; Low                            ;
-;                                                             ;                      ;                                ;
-; Total LABs:  partially or completely used                   ; 4 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
-;     -- Logic LABs                                           ; 4                    ; 0                              ;
-;     -- Memory LABs (up to half of total LABs)               ; 0                    ; 0                              ;
-;                                                             ;                      ;                                ;
-; Combinational ALUT usage for logic                          ; 49                   ; 0                              ;
-;     -- 7 input functions                                    ; 0                    ; 0                              ;
-;     -- 6 input functions                                    ; 1                    ; 0                              ;
-;     -- 5 input functions                                    ; 10                   ; 0                              ;
-;     -- 4 input functions                                    ; 2                    ; 0                              ;
-;     -- <=3 input functions                                  ; 36                   ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 1                    ; 0                              ;
-; Memory ALUT usage                                           ; 0                    ; 0                              ;
-;     -- 64-address deep                                      ; 0                    ; 0                              ;
-;     -- 32-address deep                                      ; 0                    ; 0                              ;
-;                                                             ;                      ;                                ;
-; Dedicated logic registers                                   ; 0                    ; 0                              ;
-;     -- By type:                                             ;                      ;                                ;
-;         -- Primary logic registers                          ; 30 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
-;         -- Secondary logic registers                        ; 6 / 64140 ( < 1 % )  ; 0 / 64140 ( 0 % )              ;
-;     -- By function:                                         ;                      ;                                ;
-;         -- Design implementation registers                  ; 30                   ; 0                              ;
-;         -- Routing optimization registers                   ; 6                    ; 0                              ;
-;                                                             ;                      ;                                ;
-;                                                             ;                      ;                                ;
-; Virtual pins                                                ; 0                    ; 0                              ;
-; I/O pins                                                    ; 100                  ; 2                              ;
-; I/O registers                                               ; 0                    ; 0                              ;
-; Total block memory bits                                     ; 57600                ; 0                              ;
-; Total block memory implementation bits                      ; 81920                ; 0                              ;
-; M10K block                                                  ; 8 / 397 ( 2 % )      ; 0 / 397 ( 0 % )                ;
-; Clock enable block                                          ; 0 / 116 ( 0 % )      ; 2 / 116 ( 1 % )                ;
-; Fractional PLL                                              ; 0 / 6 ( 0 % )        ; 1 / 6 ( 16 % )                 ;
-; PLL Output Counter                                          ; 0 / 54 ( 0 % )       ; 1 / 54 ( 1 % )                 ;
-; PLL Reconfiguration Block                                   ; 0 / 6 ( 0 % )        ; 1 / 6 ( 16 % )                 ;
-; PLL Reference Clock Select Block                            ; 0 / 6 ( 0 % )        ; 1 / 6 ( 16 % )                 ;
-;                                                             ;                      ;                                ;
-; Connections                                                 ;                      ;                                ;
-;     -- Input Connections                                    ; 52                   ; 0                              ;
-;     -- Registered Input Connections                         ; 52                   ; 0                              ;
-;     -- Output Connections                                   ; 0                    ; 52                             ;
-;     -- Registered Output Connections                        ; 0                    ; 0                              ;
-;                                                             ;                      ;                                ;
-; Internal Connections                                        ;                      ;                                ;
-;     -- Total Connections                                    ; 744                  ; 87                             ;
-;     -- Registered Connections                               ; 197                  ; 0                              ;
-;                                                             ;                      ;                                ;
-; External Connections                                        ;                      ;                                ;
-;     -- Top                                                  ; 0                    ; 52                             ;
-;     -- hard_block:auto_generated_inst                       ; 52                   ; 0                              ;
-;                                                             ;                      ;                                ;
-; Partition Interface                                         ;                      ;                                ;
-;     -- Input Ports                                          ; 15                   ; 1                              ;
-;     -- Output Ports                                         ; 87                   ; 3                              ;
-;     -- Bidir Ports                                          ; 0                    ; 0                              ;
-;                                                             ;                      ;                                ;
-; Registered Ports                                            ;                      ;                                ;
-;     -- Registered Input Ports                               ; 0                    ; 0                              ;
-;     -- Registered Output Ports                              ; 0                    ; 0                              ;
-;                                                             ;                      ;                                ;
-; Port Connectivity                                           ;                      ;                                ;
-;     -- Input Ports driven by GND                            ; 0                    ; 0                              ;
-;     -- Output Ports driven by GND                           ; 0                    ; 0                              ;
-;     -- Input Ports driven by VCC                            ; 0                    ; 0                              ;
-;     -- Output Ports driven by VCC                           ; 0                    ; 0                              ;
-;     -- Input Ports with no Source                           ; 0                    ; 0                              ;
-;     -- Output Ports with no Source                          ; 0                    ; 0                              ;
-;     -- Input Ports with no Fanout                           ; 0                    ; 0                              ;
-;     -- Output Ports with no Fanout                          ; 0                    ; 0                              ;
-+-------------------------------------------------------------+----------------------+--------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Fitter Partition Statistics                                                                                          ;
++-------------------------------------------------------------+-----------------------+--------------------------------+
+; Statistic                                                   ; Top                   ; hard_block:auto_generated_inst ;
++-------------------------------------------------------------+-----------------------+--------------------------------+
+; Logic utilization (ALMs needed / total ALMs on device)      ; 108 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
+; ALMs needed [=A-B+C]                                        ; 108                   ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 111 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 34                    ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 74                    ; 0                              ;
+;         [c] ALMs used for registers                         ; 3                     ; 0                              ;
+;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ; 0                              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 3 / 32070 ( < 1 % )   ; 0 / 32070 ( 0 % )              ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32070 ( 0 % )     ; 0 / 32070 ( 0 % )              ;
+;         [a] Due to location constrained logic               ; 0                     ; 0                              ;
+;         [b] Due to LAB-wide signal conflicts                ; 0                     ; 0                              ;
+;         [c] Due to LAB input limits                         ; 0                     ; 0                              ;
+;         [d] Due to virtual I/Os                             ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Difficulty packing design                                   ; Low                   ; Low                            ;
+;                                                             ;                       ;                                ;
+; Total LABs:  partially or completely used                   ; 18 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
+;     -- Logic LABs                                           ; 18                    ; 0                              ;
+;     -- Memory LABs (up to half of total LABs)               ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Combinational ALUT usage for logic                          ; 191                   ; 0                              ;
+;     -- 7 input functions                                    ; 0                     ; 0                              ;
+;     -- 6 input functions                                    ; 24                    ; 0                              ;
+;     -- 5 input functions                                    ; 19                    ; 0                              ;
+;     -- 4 input functions                                    ; 34                    ; 0                              ;
+;     -- <=3 input functions                                  ; 114                   ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 2                     ; 0                              ;
+; Memory ALUT usage                                           ; 0                     ; 0                              ;
+;     -- 64-address deep                                      ; 0                     ; 0                              ;
+;     -- 32-address deep                                      ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Dedicated logic registers                                   ; 0                     ; 0                              ;
+;     -- By type:                                             ;                       ;                                ;
+;         -- Primary logic registers                          ; 74 / 64140 ( < 1 % )  ; 0 / 64140 ( 0 % )              ;
+;         -- Secondary logic registers                        ; 6 / 64140 ( < 1 % )   ; 0 / 64140 ( 0 % )              ;
+;     -- By function:                                         ;                       ;                                ;
+;         -- Design implementation registers                  ; 74                    ; 0                              ;
+;         -- Routing optimization registers                   ; 6                     ; 0                              ;
+;                                                             ;                       ;                                ;
+;                                                             ;                       ;                                ;
+; Virtual pins                                                ; 0                     ; 0                              ;
+; I/O pins                                                    ; 100                   ; 2                              ;
+; I/O registers                                               ; 0                     ; 0                              ;
+; Total block memory bits                                     ; 57600                 ; 0                              ;
+; Total block memory implementation bits                      ; 81920                 ; 0                              ;
+; M10K block                                                  ; 8 / 397 ( 2 % )       ; 0 / 397 ( 0 % )                ;
+; Clock enable block                                          ; 0 / 116 ( 0 % )       ; 2 / 116 ( 1 % )                ;
+; Fractional PLL                                              ; 0 / 6 ( 0 % )         ; 1 / 6 ( 16 % )                 ;
+; PLL Output Counter                                          ; 0 / 54 ( 0 % )        ; 1 / 54 ( 1 % )                 ;
+; PLL Reconfiguration Block                                   ; 0 / 6 ( 0 % )         ; 1 / 6 ( 16 % )                 ;
+; PLL Reference Clock Select Block                            ; 0 / 6 ( 0 % )         ; 1 / 6 ( 16 % )                 ;
+;                                                             ;                       ;                                ;
+; Connections                                                 ;                       ;                                ;
+;     -- Input Connections                                    ; 96                    ; 0                              ;
+;     -- Registered Input Connections                         ; 96                    ; 0                              ;
+;     -- Output Connections                                   ; 0                     ; 96                             ;
+;     -- Registered Output Connections                        ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Internal Connections                                        ;                       ;                                ;
+;     -- Total Connections                                    ; 1414                  ; 131                            ;
+;     -- Registered Connections                               ; 432                   ; 0                              ;
+;                                                             ;                       ;                                ;
+; External Connections                                        ;                       ;                                ;
+;     -- Top                                                  ; 0                     ; 96                             ;
+;     -- hard_block:auto_generated_inst                       ; 96                    ; 0                              ;
+;                                                             ;                       ;                                ;
+; Partition Interface                                         ;                       ;                                ;
+;     -- Input Ports                                          ; 15                    ; 1                              ;
+;     -- Output Ports                                         ; 87                    ; 3                              ;
+;     -- Bidir Ports                                          ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Registered Ports                                            ;                       ;                                ;
+;     -- Registered Input Ports                               ; 0                     ; 0                              ;
+;     -- Registered Output Ports                              ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Port Connectivity                                           ;                       ;                                ;
+;     -- Input Ports driven by GND                            ; 0                     ; 0                              ;
+;     -- Output Ports driven by GND                           ; 0                     ; 0                              ;
+;     -- Input Ports driven by VCC                            ; 0                     ; 0                              ;
+;     -- Output Ports driven by VCC                           ; 0                     ; 0                              ;
+;     -- Input Ports with no Source                           ; 0                     ; 0                              ;
+;     -- Output Ports with no Source                          ; 0                     ; 0                              ;
+;     -- Input Ports with no Fanout                           ; 0                     ; 0                              ;
+;     -- Output Ports with no Fanout                          ; 0                     ; 0                              ;
++-------------------------------------------------------------+-----------------------+--------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -594,8 +595,8 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 ; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
-; CLOCK_50 ; AF14  ; 3B       ; 32           ; 0            ; 0            ; 9                     ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; KEY[0]   ; AA14  ; 3B       ; 36           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; CLOCK_50 ; AF14  ; 3B       ; 32           ; 0            ; 0            ; 53                    ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; KEY[0]   ; AA14  ; 3B       ; 36           ; 0            ; 0            ; 4                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; KEY[1]   ; AA15  ; 3B       ; 36           ; 0            ; 17           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; KEY[2]   ; W15   ; 3B       ; 40           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; KEY[3]   ; Y16   ; 3B       ; 40           ; 0            ; 17           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
@@ -608,7 +609,7 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; SW[6]    ; AE11  ; 3A       ; 4            ; 0            ; 34           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; SW[7]    ; AC9   ; 3A       ; 4            ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; SW[8]    ; AD10  ; 3A       ; 4            ; 0            ; 17           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; SW[9]    ; AE12  ; 3A       ; 2            ; 0            ; 57           ; 26                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; SW[9]    ; AE12  ; 3A       ; 2            ; 0            ; 57           ; 49                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 
 
@@ -678,8 +679,8 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; VGA_B[5]    ; F15   ; 8A       ; 36           ; 81           ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_B[6]    ; G15   ; 8A       ; 40           ; 81           ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_B[7]    ; J14   ; 8A       ; 32           ; 81           ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
-; VGA_B[8]    ; H8    ; 8A       ; 24           ; 81           ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; VGA_B[9]    ; G8    ; 8A       ; 24           ; 81           ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; VGA_B[8]    ; D5    ; 8A       ; 20           ; 81           ; 34           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; VGA_B[9]    ; A6    ; 8A       ; 26           ; 81           ; 74           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
 ; VGA_CLK     ; A11   ; 8A       ; 38           ; 81           ; 34           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_G[0]    ; J9    ; 8A       ; 4            ; 81           ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_G[1]    ; J10   ; 8A       ; 4            ; 81           ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
@@ -689,8 +690,8 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; VGA_G[5]    ; G12   ; 8A       ; 10           ; 81           ; 40           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_G[6]    ; F11   ; 8A       ; 18           ; 81           ; 40           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_G[7]    ; E11   ; 8A       ; 18           ; 81           ; 57           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
-; VGA_G[8]    ; B1    ; 8A       ; 16           ; 81           ; 51           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; VGA_G[9]    ; C4    ; 8A       ; 20           ; 81           ; 51           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; VGA_G[8]    ; J7    ; 8A       ; 16           ; 81           ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; VGA_G[9]    ; E6    ; 8A       ; 4            ; 81           ; 51           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
 ; VGA_HS      ; B11   ; 8A       ; 36           ; 81           ; 51           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_R[0]    ; A13   ; 8A       ; 40           ; 81           ; 51           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_R[1]    ; C13   ; 8A       ; 38           ; 81           ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
@@ -700,8 +701,8 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; VGA_R[5]    ; D12   ; 8A       ; 22           ; 81           ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_R[6]    ; E12   ; 8A       ; 22           ; 81           ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_R[7]    ; F13   ; 8A       ; 26           ; 81           ; 40           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
-; VGA_R[8]    ; D6    ; 8A       ; 22           ; 81           ; 34           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; VGA_R[9]    ; C8    ; 8A       ; 30           ; 81           ; 34           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; VGA_R[8]    ; A10   ; 8A       ; 38           ; 81           ; 51           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; VGA_R[9]    ; H8    ; 8A       ; 24           ; 81           ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
 ; VGA_SYNC_N  ; C10   ; 8A       ; 28           ; 81           ; 34           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_VS      ; D11   ; 8A       ; 34           ; 81           ; 40           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 +-------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+---------------------+-----------------------------+----------------------+----------------------+---------------------+
@@ -738,11 +739,11 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; A3       ; 493        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; A4       ; 491        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; A5       ; 489        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; A6       ; 487        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; A6       ; 487        ; 8A             ; VGA_B[9]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; A7       ;            ; 8A             ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; A8       ; 473        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; A9       ; 471        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; A10      ; 465        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; A10      ; 465        ; 8A             ; VGA_R[8]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; A11      ; 463        ; 8A             ; VGA_CLK                         ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; A12      ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; A13      ; 461        ; 8A             ; VGA_R[0]                        ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
@@ -1060,7 +1061,7 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; AK27     ; 193        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AK28     ; 198        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AK29     ; 196        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; B1       ; 509        ; 8A             ; VGA_G[8]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; B1       ; 509        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; B2       ; 507        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; B3       ; 513        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; B4       ;            ; 8A             ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
@@ -1093,11 +1094,11 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; C1       ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; C2       ; 517        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; C3       ; 511        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; C4       ; 501        ; 8A             ; VGA_G[9]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; C4       ; 501        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; C5       ; 497        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; C6       ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; C7       ; 475        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; C8       ; 479        ; 8A             ; VGA_R[9]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; C8       ; 479        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; C9       ; 485        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; C10      ; 483        ; 8A             ; VGA_SYNC_N                      ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; C11      ;            ; 8A             ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
@@ -1124,8 +1125,8 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; D2       ; 515        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; D3       ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; D4       ; 521        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; D5       ; 499        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; D6       ; 495        ; 8A             ; VGA_R[8]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; D5       ; 499        ; 8A             ; VGA_B[8]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; D6       ; 495        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; D7       ; 505        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; D8       ;            ; 8A             ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; D9       ; 480        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -1155,7 +1156,7 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; E3       ; 523        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; E4       ; 519        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; E5       ;            ; 8A             ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
-; E6       ; 533        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; E6       ; 533        ; 8A             ; VGA_G[9]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; E7       ; 531        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; E8       ; 503        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; E9       ; 478        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -1217,7 +1218,7 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; G5       ; 542        ; 9A             ; ^nCE                            ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; G6       ; 543        ; 9A             ; ^MSEL2                          ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; G7       ; 535        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; G8       ; 492        ; 8A             ; VGA_B[9]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; G8       ; 492        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; G9       ;            ; 8A             ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; G10      ; 526        ; 8A             ; VGA_G[3]                        ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; G11      ; 520        ; 8A             ; VGA_G[4]                        ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
@@ -1247,7 +1248,7 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; H5       ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; H6       ;            ; 8A             ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; H7       ; 508        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; H8       ; 490        ; 8A             ; VGA_B[8]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; H8       ; 490        ; 8A             ; VGA_R[9]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; H9       ;            ; --             ; VCCBAT                          ; power  ;              ; 1.2V                ; --           ;                 ; --       ; --           ;
 ; H10      ;            ; --             ; VCC_AUX                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; H11      ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -1276,7 +1277,7 @@ The pin-out file can be found in W:/GithubWasd/pacman-from-fpga/src/output_files
 ; J4       ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; J5       ; 545        ; 9A             ; ^nCONFIG                        ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; J6       ; 547        ; 9A             ; ^GND                            ;        ;              ;                     ; --           ;                 ; --       ; --           ;
-; J7       ; 506        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; J7       ; 506        ; 8A             ; VGA_G[8]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; J8       ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; J9       ; 532        ; 8A             ; VGA_G[0]                        ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; J10      ; 530        ; 8A             ; VGA_G[1]                        ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
@@ -1648,7 +1649,6 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; SW[6]       ; Incomplete set of assignments ;
 ; SW[7]       ; Incomplete set of assignments ;
 ; SW[8]       ; Incomplete set of assignments ;
-; KEY[0]      ; Incomplete set of assignments ;
 ; KEY[1]      ; Incomplete set of assignments ;
 ; KEY[2]      ; Incomplete set of assignments ;
 ; KEY[3]      ; Incomplete set of assignments ;
@@ -1739,6 +1739,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; VGA_B[7]    ; Incomplete set of assignments ;
 ; VGA_B[8]    ; Incomplete set of assignments ;
 ; VGA_B[9]    ; Incomplete set of assignments ;
+; KEY[0]      ; Incomplete set of assignments ;
 ; CLOCK_50    ; Incomplete set of assignments ;
 ; SW[9]       ; Incomplete set of assignments ;
 ; VGA_R[8]    ; Missing location assignment   ;
@@ -1798,23 +1799,32 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------------------------------------------------------------------------------------------------------+----------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
-+---------------------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; Compilation Hierarchy Node                              ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Entity Name            ; Library Name ;
-+---------------------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |Pacman                                                 ; 26.0 (0.5)           ; 29.0 (0.5)                       ; 3.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 49 (1)              ; 36 (0)                    ; 0 (0)         ; 57600             ; 8     ; 0          ; 102  ; 0            ; |Pacman                                                                                                ; Pacman                 ; work         ;
-;    |vga_adapter:VGA|                                    ; 25.5 (0.0)           ; 28.5 (0.0)                       ; 3.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 48 (0)              ; 36 (0)                    ; 0 (0)         ; 57600             ; 8     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
-;       |altsyncram:VideoMemory|                          ; 4.5 (0.0)            ; 5.5 (0.0)                        ; 1.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 6 (0)               ; 4 (0)                     ; 0 (0)         ; 57600             ; 8     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
-;          |altsyncram_m6m1:auto_generated|               ; 4.5 (1.2)            ; 5.5 (1.3)                        ; 1.0 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 6 (0)               ; 4 (4)                     ; 0 (0)         ; 57600             ; 8     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated                          ; altsyncram_m6m1        ; work         ;
-;             |decode_01a:rden_decode_b|                  ; 1.3 (1.3)            ; 1.5 (1.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b ; decode_01a             ; work         ;
-;             |mux_ifb:mux3|                              ; 2.0 (2.0)            ; 2.7 (2.7)                        ; 0.7 (0.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3             ; mux_ifb                ; work         ;
-;       |vga_controller:controller|                       ; 21.0 (16.5)          ; 23.0 (18.5)                      ; 2.0 (2.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 42 (32)             ; 32 (32)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_controller:controller                                                      ; vga_controller         ; work         ;
-;          |vga_address_translator:controller_translator| ; 4.5 (4.5)            ; 4.5 (4.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 10 (10)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator         ; vga_address_translator ; work         ;
-;       |vga_pll:mypll|                                   ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll                                                                  ; vga_pll                ; work         ;
-;          |altpll:altpll_component|                      ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component                                          ; altpll                 ; work         ;
-;             |altpll_80u:auto_generated|                 ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated                ; altpll_80u             ; work         ;
-+---------------------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ;
++---------------------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+----------------------------+--------------+
+; Compilation Hierarchy Node                              ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Entity Name                ; Library Name ;
++---------------------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+----------------------------+--------------+
+; |Pacman                                                 ; 107.5 (0.5)          ; 110.5 (0.5)                      ; 3.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 191 (1)             ; 80 (0)                    ; 0 (0)         ; 57600             ; 8     ; 0          ; 102  ; 0            ; |Pacman                                                                                                ; Pacman                     ; work         ;
+;    |HexDisplay:hex0|                                    ; 6.7 (6.7)            ; 6.7 (6.7)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|HexDisplay:hex0                                                                                ; HexDisplay                 ; work         ;
+;    |HexDisplay:hex1|                                    ; 3.3 (3.3)            ; 3.3 (3.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|HexDisplay:hex1                                                                                ; HexDisplay                 ; work         ;
+;    |HexDisplay:hex2|                                    ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|HexDisplay:hex2                                                                                ; HexDisplay                 ; work         ;
+;    |MainModule:main_module|                             ; 30.2 (0.0)           ; 30.2 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 53 (0)              ; 15 (0)                    ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module                                                                         ; MainModule                 ; work         ;
+;       |CharacterDisplayController:controller|           ; 26.8 (26.8)          ; 26.8 (26.8)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 47 (47)             ; 9 (9)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module|CharacterDisplayController:controller                                   ; CharacterDisplayController ; work         ;
+;       |CharacterRegisters:character_registers|          ; 3.3 (3.3)            ; 3.3 (3.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 6 (6)               ; 6 (6)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module|CharacterRegisters:character_registers                                  ; CharacterRegisters         ; work         ;
+;    |RateDivider:divider|                                ; 27.0 (27.0)          ; 28.5 (28.5)                      ; 1.5 (1.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 46 (46)             ; 29 (29)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|RateDivider:divider                                                                            ; RateDivider                ; work         ;
+;    |vga_adapter:VGA|                                    ; 36.0 (0.5)           ; 37.8 (0.5)                       ; 1.8 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 70 (1)              ; 36 (0)                    ; 0 (0)         ; 57600             ; 8     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA                                                                                ; vga_adapter                ; work         ;
+;       |altsyncram:VideoMemory|                          ; 5.5 (0.0)            ; 5.8 (0.0)                        ; 0.3 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 9 (0)               ; 4 (0)                     ; 0 (0)         ; 57600             ; 8     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram                 ; work         ;
+;          |altsyncram_m6m1:auto_generated|               ; 5.5 (1.2)            ; 5.8 (1.2)                        ; 0.3 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 9 (0)               ; 4 (4)                     ; 0 (0)         ; 57600             ; 8     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated                          ; altsyncram_m6m1            ; work         ;
+;             |decode_01a:rden_decode_b|                  ; 0.8 (0.8)            ; 0.8 (0.8)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b ; decode_01a                 ; work         ;
+;             |decode_7la:decode2|                        ; 1.5 (1.5)            ; 1.5 (1.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:decode2       ; decode_7la                 ; work         ;
+;             |mux_ifb:mux3|                              ; 2.0 (2.0)            ; 2.3 (2.3)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3             ; mux_ifb                    ; work         ;
+;       |vga_address_translator:user_input_translator|    ; 9.0 (9.0)            ; 9.0 (9.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 18 (18)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_address_translator:user_input_translator                                   ; vga_address_translator     ; work         ;
+;       |vga_controller:controller|                       ; 21.0 (16.5)          ; 22.5 (18.0)                      ; 1.5 (1.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 42 (32)             ; 32 (32)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_controller:controller                                                      ; vga_controller             ; work         ;
+;          |vga_address_translator:controller_translator| ; 4.5 (4.5)            ; 4.5 (4.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 10 (10)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator         ; vga_address_translator     ; work         ;
+;       |vga_pll:mypll|                                   ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll                                                                  ; vga_pll                    ; work         ;
+;          |altpll:altpll_component|                      ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component                                          ; altpll                     ; work         ;
+;             |altpll_80u:auto_generated|                 ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated                ; altpll_80u                 ; work         ;
++---------------------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -1832,7 +1842,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SW[6]       ; Input    ; -- ; --   ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; SW[7]       ; Input    ; -- ; --   ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; SW[8]       ; Input    ; -- ; --   ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; KEY[0]      ; Input    ; -- ; --   ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; KEY[1]      ; Input    ; -- ; --   ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; KEY[2]      ; Input    ; -- ; --   ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; KEY[3]      ; Input    ; -- ; --   ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
@@ -1923,74 +1932,109 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA_B[7]    ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; VGA_B[8]    ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; VGA_B[9]    ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; KEY[0]      ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; CLOCK_50    ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; SW[9]       ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 +-------------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 
 
-+------------------------------------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                                                       ;
-+------------------------------------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                                                    ; Pad To Core Index ; Setting ;
-+------------------------------------------------------------------------+-------------------+---------+
-; SW[0]                                                                  ;                   ;         ;
-; SW[1]                                                                  ;                   ;         ;
-; SW[2]                                                                  ;                   ;         ;
-; SW[3]                                                                  ;                   ;         ;
-; SW[4]                                                                  ;                   ;         ;
-; SW[5]                                                                  ;                   ;         ;
-; SW[6]                                                                  ;                   ;         ;
-; SW[7]                                                                  ;                   ;         ;
-; SW[8]                                                                  ;                   ;         ;
-; KEY[0]                                                                 ;                   ;         ;
-; KEY[1]                                                                 ;                   ;         ;
-; KEY[2]                                                                 ;                   ;         ;
-; KEY[3]                                                                 ;                   ;         ;
-; CLOCK_50                                                               ;                   ;         ;
-; SW[9]                                                                  ;                   ;         ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[2]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[3]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[4]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[5]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[6]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[9]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[8]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[7]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[1]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[0]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[9]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[8]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[7]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[6]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[5]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[4]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[3]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[2]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[1]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[0]           ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[5]~DUPLICATE ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[8]~DUPLICATE ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|xCounter[7]~DUPLICATE ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[9]~DUPLICATE ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[8]~DUPLICATE ; 1                 ; 0       ;
-;      - vga_adapter:VGA|vga_controller:controller|yCounter[6]~DUPLICATE ; 1                 ; 0       ;
-+------------------------------------------------------------------------+-------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                                                                            ;
++---------------------------------------------------------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                                                                         ; Pad To Core Index ; Setting ;
++---------------------------------------------------------------------------------------------+-------------------+---------+
+; SW[0]                                                                                       ;                   ;         ;
+; SW[1]                                                                                       ;                   ;         ;
+; SW[2]                                                                                       ;                   ;         ;
+; SW[3]                                                                                       ;                   ;         ;
+; SW[4]                                                                                       ;                   ;         ;
+; SW[5]                                                                                       ;                   ;         ;
+; SW[6]                                                                                       ;                   ;         ;
+; SW[7]                                                                                       ;                   ;         ;
+; SW[8]                                                                                       ;                   ;         ;
+; KEY[1]                                                                                      ;                   ;         ;
+; KEY[2]                                                                                      ;                   ;         ;
+; KEY[3]                                                                                      ;                   ;         ;
+; KEY[0]                                                                                      ;                   ;         ;
+;      - MainModule:main_module|CharacterDisplayController:controller|Mux7~0                  ; 0                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|Mux5~0                  ; 0                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|Mux4~0                  ; 0                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|Mux9~1                  ; 0                 ; 0       ;
+; CLOCK_50                                                                                    ;                   ;         ;
+; SW[9]                                                                                       ;                   ;         ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[1]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[7]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[8]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[9]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[6]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[5]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[4]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[3]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[2]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[0]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[6]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[9]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[8]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[7]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[5]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[4]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[3]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[2]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[1]                                ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[0]                                ; 1                 ; 0       ;
+;      - RateDivider:divider|reduced_clock                                                    ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[1] ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterRegisters:character_registers|x_out[1]               ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|cur_sprite_x[2]~0       ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|cur_sprite_y~0          ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|cur_sprite_y[2]~1       ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|character_type[2]~1     ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|character_type[0]~2     ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|character_type[1]~3     ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|cur_sprite_y~2          ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|cur_sprite_y~3          ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|cur_sprite_x[0]~1       ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterDisplayController:controller|cur_sprite_x[1]~2       ; 1                 ; 0       ;
+;      - RateDivider:divider|cur_time[11]~0                                                   ; 1                 ; 0       ;
+;      - RateDivider:divider|cur_time~1                                                       ; 1                 ; 0       ;
+;      - RateDivider:divider|cur_time~2                                                       ; 1                 ; 0       ;
+;      - RateDivider:divider|cur_time~3                                                       ; 1                 ; 0       ;
+;      - RateDivider:divider|cur_time~4                                                       ; 1                 ; 0       ;
+;      - RateDivider:divider|cur_time~5                                                       ; 1                 ; 0       ;
+;      - RateDivider:divider|cur_time~6                                                       ; 1                 ; 0       ;
+;      - RateDivider:divider|cur_time~7                                                       ; 1                 ; 0       ;
+;      - RateDivider:divider|cur_time~8                                                       ; 1                 ; 0       ;
+;      - MainModule:main_module|CharacterRegisters:character_registers|x_out[2]~2             ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[2]~DUPLICATE                      ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[5]~DUPLICATE                      ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[8]~DUPLICATE                      ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|xCounter[7]~DUPLICATE                      ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[9]~DUPLICATE                      ; 1                 ; 0       ;
+;      - vga_adapter:VGA|vga_controller:controller|yCounter[6]~DUPLICATE                      ; 1                 ; 0       ;
++---------------------------------------------------------------------------------------------+-------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                                                                                                 ;
-+---------------------------------------------------------------------------------------------------------------+----------------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; Name                                                                                                          ; Location                   ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+---------------------------------------------------------------------------------------------------------------+----------------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50                                                                                                      ; PIN_AF14                   ; 8       ; Clock                     ; yes    ; Global Clock         ; GCLK5            ; --                        ;
-; SW[9]                                                                                                         ; PIN_AE12                   ; 26      ; Async. clear              ; no     ; --                   ; --               ; --                        ;
-; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b|w_anode143w[2] ; MLABCELL_X21_Y79_N42       ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b|w_anode157w[2] ; MLABCELL_X21_Y79_N6        ; 3       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b|w_anode166w[2] ; MLABCELL_X21_Y79_N9        ; 2       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; vga_adapter:VGA|vga_controller:controller|Equal0~2                                                            ; LABCELL_X23_Y79_N57        ; 26      ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; vga_adapter:VGA|vga_controller:controller|always1~3                                                           ; LABCELL_X23_Y79_N54        ; 13      ; Sync. clear               ; no     ; --                   ; --               ; --                        ;
-; vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|clk[0]                        ; PLLOUTPUTCOUNTER_X0_Y20_N1 ; 45      ; Clock                     ; yes    ; Global Clock         ; GCLK6            ; --                        ;
-+---------------------------------------------------------------------------------------------------------------+----------------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                                                                                                                           ;
++---------------------------------------------------------------------------------------------------------------+----------------------------+---------+-----------------------------------------------------+--------+----------------------+------------------+---------------------------+
+; Name                                                                                                          ; Location                   ; Fan-Out ; Usage                                               ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++---------------------------------------------------------------------------------------------------------------+----------------------------+---------+-----------------------------------------------------+--------+----------------------+------------------+---------------------------+
+; CLOCK_50                                                                                                      ; PIN_AF14                   ; 52      ; Clock                                               ; yes    ; Global Clock         ; GCLK5            ; --                        ;
+; MainModule:main_module|CharacterDisplayController:controller|Mux0~0                                           ; LABCELL_X70_Y15_N48        ; 4       ; Latch enable                                        ; no     ; --                   ; --               ; --                        ;
+; MainModule:main_module|CharacterDisplayController:controller|cur_sprite_y[2]~1                                ; MLABCELL_X72_Y15_N15       ; 3       ; Clock enable                                        ; no     ; --                   ; --               ; --                        ;
+; MainModule:main_module|CharacterRegisters:character_registers|x_out[2]~2                                      ; LABCELL_X71_Y15_N36        ; 4       ; Clock enable                                        ; no     ; --                   ; --               ; --                        ;
+; RateDivider:divider|cur_time[11]~0                                                                            ; LABCELL_X9_Y2_N12          ; 20      ; Sync. clear                                         ; no     ; --                   ; --               ; --                        ;
+; SW[9]                                                                                                         ; PIN_AE12                   ; 49      ; Async. clear, Clock enable, Sync. clear, Sync. load ; no     ; --                   ; --               ; --                        ;
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b|w_anode143w[2] ; LABCELL_X71_Y15_N33        ; 3       ; Clock enable                                        ; no     ; --                   ; --               ; --                        ;
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b|w_anode157w[2] ; LABCELL_X71_Y15_N51        ; 3       ; Clock enable                                        ; no     ; --                   ; --               ; --                        ;
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b|w_anode166w[2] ; MLABCELL_X72_Y16_N33       ; 2       ; Clock enable                                        ; no     ; --                   ; --               ; --                        ;
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:decode2|w_anode105w[2]       ; LABCELL_X75_Y16_N54        ; 3       ; Clock enable, Write enable                          ; no     ; --                   ; --               ; --                        ;
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:decode2|w_anode118w[2]       ; LABCELL_X74_Y16_N24        ; 3       ; Clock enable, Write enable                          ; no     ; --                   ; --               ; --                        ;
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:decode2|w_anode126w[2]       ; LABCELL_X75_Y16_N57        ; 2       ; Clock enable, Write enable                          ; no     ; --                   ; --               ; --                        ;
+; vga_adapter:VGA|vga_controller:controller|Equal0~2                                                            ; LABCELL_X70_Y16_N21        ; 26      ; Clock enable, Sync. clear                           ; no     ; --                   ; --               ; --                        ;
+; vga_adapter:VGA|vga_controller:controller|always1~3                                                           ; MLABCELL_X72_Y16_N30       ; 12      ; Sync. clear                                         ; no     ; --                   ; --               ; --                        ;
+; vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|clk[0]                        ; PLLOUTPUTCOUNTER_X0_Y20_N1 ; 45      ; Clock                                               ; yes    ; Global Clock         ; GCLK6            ; --                        ;
++---------------------------------------------------------------------------------------------------------------+----------------------------+---------+-----------------------------------------------------+--------+----------------------+------------------+---------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1998,7 +2042,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------------------+----------------------------+---------+----------------------+------------------+---------------------------+
 ; Name                                                                                     ; Location                   ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------------------------------------------------------------------------------------------+----------------------------+---------+----------------------+------------------+---------------------------+
-; CLOCK_50                                                                                 ; PIN_AF14                   ; 8       ; Global Clock         ; GCLK5            ; --                        ;
+; CLOCK_50                                                                                 ; PIN_AF14                   ; 52      ; Global Clock         ; GCLK5            ; --                        ;
 ; vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|clk[0]   ; PLLOUTPUTCOUNTER_X0_Y20_N1 ; 45      ; Global Clock         ; GCLK6            ; --                        ;
 ; vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|fb_clkin ; FRACTIONALPLL_X0_Y15_N0    ; 1       ; Global Clock         ; --               ; --                        ;
 +------------------------------------------------------------------------------------------+----------------------------+---------+----------------------+------------------+---------------------------+
@@ -2009,7 +2053,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------------+------+------------------+-------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+-------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------+-----------------+----------+------------------------+-----------------------+
 ; Name                                                                             ; Type ; Mode             ; Clock Mode  ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size  ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M10K blocks ; MLAB cells ; MIF       ; Location                                                                                                                               ; Mixed Width RDW Mode ; Port A RDW Mode ; Port B RDW Mode ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs         ;
 +----------------------------------------------------------------------------------+------+------------------+-------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+-------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------+-----------------+----------+------------------------+-----------------------+
-; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Dual Clocks ; 19200        ; 3            ; 19200        ; 3            ; yes                    ; no                      ; yes                    ; yes                     ; 57600 ; 19200                       ; 3                           ; 19200                       ; 3                           ; 57600               ; 8           ; 0          ; black.mif ; M10K_X14_Y78_N0, M10K_X14_Y80_N0, M10K_X26_Y79_N0, M10K_X14_Y77_N0, M10K_X26_Y78_N0, M10K_X26_Y77_N0, M10K_X14_Y79_N0, M10K_X26_Y80_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Address Too Wide ;
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Dual Clocks ; 19200        ; 3            ; 19200        ; 3            ; yes                    ; no                      ; yes                    ; yes                     ; 57600 ; 19200                       ; 3                           ; 19200                       ; 3                           ; 57600               ; 8           ; 0          ; black.mif ; M10K_X76_Y15_N0, M10K_X76_Y14_N0, M10K_X69_Y18_N0, M10K_X69_Y16_N0, M10K_X69_Y14_N0, M10K_X69_Y17_N0, M10K_X76_Y16_N0, M10K_X69_Y15_N0 ; Don't care           ; New data        ; New data        ; Off      ; No                     ; No - Address Too Wide ;
 +----------------------------------------------------------------------------------+------+------------------+-------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+-------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------+----------------------+-----------------+-----------------+----------+------------------------+-----------------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
@@ -2019,14 +2063,14 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +---------------------------------------------+-------------------------+
 ; Routing Resource Type                       ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Block interconnects                         ; 208 / 289,320 ( < 1 % ) ;
-; C12 interconnects                           ; 8 / 13,420 ( < 1 % )    ;
-; C2 interconnects                            ; 63 / 119,108 ( < 1 % )  ;
-; C4 interconnects                            ; 29 / 56,300 ( < 1 % )   ;
+; Block interconnects                         ; 508 / 289,320 ( < 1 % ) ;
+; C12 interconnects                           ; 46 / 13,420 ( < 1 % )   ;
+; C2 interconnects                            ; 164 / 119,108 ( < 1 % ) ;
+; C4 interconnects                            ; 161 / 56,300 ( < 1 % )  ;
 ; DQS bus muxes                               ; 0 / 25 ( 0 % )          ;
 ; DQS-18 I/O buses                            ; 0 / 25 ( 0 % )          ;
 ; DQS-9 I/O buses                             ; 0 / 25 ( 0 % )          ;
-; Direct links                                ; 21 / 289,320 ( < 1 % )  ;
+; Direct links                                ; 53 / 289,320 ( < 1 % )  ;
 ; Global clocks                               ; 2 / 16 ( 13 % )         ;
 ; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )           ;
 ; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )           ;
@@ -2082,13 +2126,13 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 ; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )           ;
 ; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )          ;
 ; Horizontal periphery clocks                 ; 0 / 72 ( 0 % )          ;
-; Local interconnects                         ; 17 / 84,580 ( < 1 % )   ;
+; Local interconnects                         ; 73 / 84,580 ( < 1 % )   ;
 ; Quadrant clocks                             ; 0 / 66 ( 0 % )          ;
-; R14 interconnects                           ; 5 / 12,676 ( < 1 % )    ;
-; R14/C12 interconnect drivers                ; 7 / 20,720 ( < 1 % )    ;
-; R3 interconnects                            ; 80 / 130,992 ( < 1 % )  ;
-; R6 interconnects                            ; 154 / 266,960 ( < 1 % ) ;
-; Spine clocks                                ; 5 / 360 ( 1 % )         ;
+; R14 interconnects                           ; 94 / 12,676 ( < 1 % )   ;
+; R14/C12 interconnect drivers                ; 131 / 20,720 ( < 1 % )  ;
+; R3 interconnects                            ; 226 / 130,992 ( < 1 % ) ;
+; R6 interconnects                            ; 372 / 266,960 ( < 1 % ) ;
+; Spine clocks                                ; 6 / 360 ( 2 % )         ;
 ; Wire stub REs                               ; 0 / 15,858 ( 0 % )      ;
 +---------------------------------------------+-------------------------+
 
@@ -2161,7 +2205,6 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 ; SW[6]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; SW[7]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; SW[8]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
-; KEY[0]             ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; KEY[1]             ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; KEY[2]             ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; KEY[3]             ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
@@ -2252,6 +2295,7 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 ; VGA_B[7]           ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; VGA_B[8]           ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; VGA_B[9]           ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
+; KEY[0]             ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; CLOCK_50           ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; SW[9]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 +--------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
@@ -2300,58 +2344,105 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +---------------------------+--------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Summary                                                                                                                                           ;
-+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+-------------------+
-; Source Clock(s)                                                                  ; Destination Clock(s)                                                             ; Delay Added in ns ;
-+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+-------------------+
-; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 11.6              ;
-+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+-------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary                                                                                                                                                      ;
++---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+-------------------+
+; Source Clock(s)                                                                             ; Destination Clock(s)                                                             ; Delay Added in ns ;
++---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+-------------------+
+; CLOCK_50,MainModule:main_module|CharacterDisplayController:controller|character_type[0],I/O ; CLOCK_50                                                                         ; 145.8             ;
+; CLOCK_50                                                                                    ; CLOCK_50                                                                         ; 66.0              ;
+; CLOCK_50,I/O                                                                                ; CLOCK_50                                                                         ; 19.6              ;
+; CLOCK_50                                                                                    ; CLOCK_50,I/O                                                                     ; 9.6               ;
+; CLOCK_50                                                                                    ; MainModule:main_module|CharacterDisplayController:controller|character_type[0]   ; 9.5               ;
+; MainModule:main_module|CharacterDisplayController:controller|character_type[0]              ; CLOCK_50                                                                         ; 8.5               ;
+; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk            ; VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk ; 5.7               ;
++---------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the TimeQuest Timing Analyzer.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                                                                                                                     ;
-+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------+-------------------+
-; Source Register                                       ; Destination Register                                                                                  ; Delay Added in ns ;
-+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------+-------------------+
-; vga_adapter:VGA|vga_controller:controller|xCounter[2] ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a8~portb_address_reg0 ; 0.563             ;
-; vga_adapter:VGA|vga_controller:controller|xCounter[4] ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a8~portb_address_reg0 ; 0.536             ;
-; vga_adapter:VGA|vga_controller:controller|xCounter[6] ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a8~portb_address_reg0 ; 0.523             ;
-; vga_adapter:VGA|vga_controller:controller|xCounter[3] ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a8~portb_address_reg0 ; 0.514             ;
-; vga_adapter:VGA|vga_controller:controller|xCounter[5] ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a8~portb_address_reg0 ; 0.504             ;
-; vga_adapter:VGA|vga_controller:controller|xCounter[8] ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.302             ;
-; vga_adapter:VGA|vga_controller:controller|xCounter[9] ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.238             ;
-; vga_adapter:VGA|vga_controller:controller|yCounter[3] ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a8~portb_address_reg0 ; 0.237             ;
-; vga_adapter:VGA|vga_controller:controller|yCounter[5] ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.197             ;
-; vga_adapter:VGA|vga_controller:controller|xCounter[7] ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.193             ;
-; vga_adapter:VGA|vga_controller:controller|yCounter[7] ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.171             ;
-; vga_adapter:VGA|vga_controller:controller|VGA_HS1     ; vga_adapter:VGA|vga_controller:controller|VGA_HS                                                      ; 0.121             ;
-; vga_adapter:VGA|vga_controller:controller|yCounter[2] ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a8~portb_address_reg0 ; 0.120             ;
-; vga_adapter:VGA|vga_controller:controller|yCounter[6] ; vga_adapter:VGA|vga_controller:controller|VGA_BLANK1                                                  ; 0.102             ;
-; vga_adapter:VGA|vga_controller:controller|yCounter[8] ; vga_adapter:VGA|vga_controller:controller|VGA_BLANK1                                                  ; 0.102             ;
-; vga_adapter:VGA|vga_controller:controller|yCounter[4] ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a8~portb_address_reg0 ; 0.084             ;
-; vga_adapter:VGA|vga_controller:controller|xCounter[1] ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.080             ;
-; vga_adapter:VGA|vga_controller:controller|xCounter[0] ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.080             ;
-; vga_adapter:VGA|vga_controller:controller|yCounter[9] ; vga_adapter:VGA|vga_controller:controller|VGA_VS1                                                     ; 0.022             ;
-+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------+-------------------+
-Note: This table only shows the top 19 path(s) that have the largest delay added for hold.
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                                                                                                                                    ;
++--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+-------------------+
+; Source Register                                                                      ; Destination Register                                                                                  ; Delay Added in ns ;
++--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+-------------------+
+; MainModule:main_module|CharacterDisplayController:controller|character_type[2]       ; MainModule:main_module|CharacterRegisters:character_registers|x_out[1]                                ; 5.276             ;
+; MainModule:main_module|CharacterDisplayController:controller|character_type[0]       ; MainModule:main_module|CharacterRegisters:character_registers|x_out[1]                                ; 5.276             ;
+; MainModule:main_module|CharacterDisplayController:controller|character_type[1]       ; MainModule:main_module|CharacterRegisters:character_registers|x_out[1]                                ; 5.276             ;
+; MainModule:main_module|CharacterDisplayController:controller|sprite_color[0]         ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a0~porta_datain_reg0  ; 4.314             ;
+; MainModule:main_module|CharacterDisplayController:controller|sprite_color[1]         ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a4~porta_datain_reg0  ; 4.116             ;
+; MainModule:main_module|CharacterDisplayController:controller|sprite_color[2]         ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a8~porta_datain_reg0  ; 4.040             ;
+; MainModule:main_module|CharacterDisplayController:controller|cur_sprite_y[1]         ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a0~porta_datain_reg0  ; 3.628             ;
+; MainModule:main_module|CharacterDisplayController:controller|cur_sprite_y[2]         ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a0~porta_datain_reg0  ; 3.628             ;
+; MainModule:main_module|CharacterDisplayController:controller|cur_sprite_y[0]         ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a0~porta_datain_reg0  ; 3.628             ;
+; KEY[0]                                                                               ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a0~porta_datain_reg0  ; 3.569             ;
+; MainModule:main_module|CharacterDisplayController:controller|cur_sprite_x[0]         ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a0~porta_datain_reg0  ; 2.536             ;
+; MainModule:main_module|CharacterDisplayController:controller|cur_sprite_x[1]         ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a0~porta_datain_reg0  ; 2.536             ;
+; MainModule:main_module|CharacterDisplayController:controller|cur_sprite_x[2]         ; MainModule:main_module|CharacterDisplayController:controller|character_type[1]                        ; 2.333             ;
+; SW[9]                                                                                ; MainModule:main_module|CharacterDisplayController:controller|character_type[1]                        ; 2.333             ;
+; RateDivider:divider|cur_time[2]                                                      ; RateDivider:divider|cur_time[22]                                                                      ; 1.588             ;
+; RateDivider:divider|cur_time[11]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 1.420             ;
+; RateDivider:divider|cur_time[3]                                                      ; RateDivider:divider|cur_time[22]                                                                      ; 1.321             ;
+; RateDivider:divider|cur_time[22]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 1.100             ;
+; vga_adapter:VGA|vga_controller:controller|yCounter[8]                                ; vga_adapter:VGA|vga_controller:controller|VGA_BLANK1                                                  ; 1.049             ;
+; RateDivider:divider|cur_time[14]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 1.042             ;
+; RateDivider:divider|cur_time[9]                                                      ; RateDivider:divider|cur_time[22]                                                                      ; 1.042             ;
+; RateDivider:divider|cur_time[8]                                                      ; RateDivider:divider|cur_time[22]                                                                      ; 1.042             ;
+; RateDivider:divider|cur_time[6]                                                      ; RateDivider:divider|cur_time[22]                                                                      ; 1.042             ;
+; RateDivider:divider|cur_time[18]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 1.042             ;
+; RateDivider:divider|cur_time[24]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.901             ;
+; RateDivider:divider|cur_time[23]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.901             ;
+; RateDivider:divider|cur_time[1]                                                      ; RateDivider:divider|cur_time[22]                                                                      ; 0.901             ;
+; RateDivider:divider|cur_time[0]                                                      ; RateDivider:divider|cur_time[22]                                                                      ; 0.901             ;
+; RateDivider:divider|cur_time[27]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.844             ;
+; RateDivider:divider|cur_time[26]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.844             ;
+; RateDivider:divider|cur_time[19]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.844             ;
+; RateDivider:divider|cur_time[4]                                                      ; RateDivider:divider|cur_time[22]                                                                      ; 0.844             ;
+; RateDivider:divider|cur_time[25]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.844             ;
+; vga_adapter:VGA|vga_controller:controller|yCounter[6]                                ; vga_adapter:VGA|vga_controller:controller|VGA_BLANK1                                                  ; 0.647             ;
+; vga_adapter:VGA|vga_controller:controller|yCounter[5]                                ; vga_adapter:VGA|vga_controller:controller|VGA_BLANK1                                                  ; 0.647             ;
+; vga_adapter:VGA|vga_controller:controller|yCounter[7]                                ; vga_adapter:VGA|vga_controller:controller|VGA_BLANK1                                                  ; 0.647             ;
+; RateDivider:divider|cur_time[16]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.447             ;
+; RateDivider:divider|cur_time[12]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.447             ;
+; RateDivider:divider|cur_time[13]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.447             ;
+; RateDivider:divider|cur_time[15]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.447             ;
+; RateDivider:divider|cur_time[20]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.447             ;
+; RateDivider:divider|cur_time[7]                                                      ; RateDivider:divider|cur_time[22]                                                                      ; 0.447             ;
+; RateDivider:divider|cur_time[17]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.447             ;
+; RateDivider:divider|cur_time[21]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.447             ;
+; RateDivider:divider|cur_time[10]                                                     ; RateDivider:divider|cur_time[22]                                                                      ; 0.447             ;
+; RateDivider:divider|cur_time[5]                                                      ; RateDivider:divider|cur_time[22]                                                                      ; 0.447             ;
+; vga_adapter:VGA|vga_controller:controller|xCounter[5]                                ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.347             ;
+; vga_adapter:VGA|vga_controller:controller|xCounter[8]                                ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.289             ;
+; MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[1] ; MainModule:main_module|CharacterRegisters:character_registers|x_out[1]                                ; 0.273             ;
+; MainModule:main_module|CharacterRegisters:character_registers|x_out[1]               ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a0~porta_address_reg0 ; 0.261             ;
+; vga_adapter:VGA|vga_controller:controller|xCounter[6]                                ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.257             ;
+; vga_adapter:VGA|vga_controller:controller|xCounter[4]                                ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.225             ;
+; vga_adapter:VGA|vga_controller:controller|xCounter[3]                                ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a4~portb_address_reg0 ; 0.225             ;
+; vga_adapter:VGA|vga_controller:controller|xCounter[2]                                ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a4~portb_address_reg0 ; 0.225             ;
+; vga_adapter:VGA|vga_controller:controller|xCounter[9]                                ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.224             ;
+; vga_adapter:VGA|vga_controller:controller|xCounter[7]                                ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.181             ;
+; vga_adapter:VGA|vga_controller:controller|yCounter[1]                                ; vga_adapter:VGA|vga_controller:controller|VGA_VS1                                                     ; 0.176             ;
+; vga_adapter:VGA|vga_controller:controller|yCounter[0]                                ; vga_adapter:VGA|vga_controller:controller|VGA_VS1                                                     ; 0.168             ;
+; vga_adapter:VGA|vga_controller:controller|xCounter[1]                                ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.063             ;
+; vga_adapter:VGA|vga_controller:controller|xCounter[0]                                ; vga_adapter:VGA|vga_controller:controller|VGA_HS1                                                     ; 0.063             ;
+; vga_adapter:VGA|vga_controller:controller|yCounter[4]                                ; vga_adapter:VGA|vga_controller:controller|VGA_VS1                                                     ; 0.040             ;
+; vga_adapter:VGA|vga_controller:controller|yCounter[3]                                ; vga_adapter:VGA|vga_controller:controller|VGA_VS1                                                     ; 0.040             ;
+; vga_adapter:VGA|vga_controller:controller|yCounter[2]                                ; vga_adapter:VGA|vga_controller:controller|VGA_VS1                                                     ; 0.040             ;
++--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+-------------------+
+Note: This table only shows the top 63 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
 ; Fitter Messages ;
 +-----------------+
-Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (119006): Selected device 5CSEMA5F31C6 for design "Pacman"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
-Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: W:/GithubWasd/pacman-from-fpga/src/db/altpll_80u.tdf Line: 34
+Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/db/altpll_80u.tdf Line: 34
     Info: Must be connected
 Warning (21300): LOCKED port on the PLL is not properly connected on instance "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1". The LOCKED port on the PLL should be connected when the FBOUTCLK port is connected. Although it is unnecessary to connect the LOCKED signal, any logic driven off of an output clock of the PLL will not know when the PLL is locked and ready.
-Warning (18550): Found RAM instances implemented as ROM because the write logic is disabled. One instance is listed below as an example.
-    Info (119043): Atom "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ram_block1a8" is instantiated as RAM, but it is actually implemented as ROM function because the write logic is always disabled
 Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Info (176045): Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
@@ -2362,16 +2453,17 @@ Warning (177007): PLL(s) placed in location FRACTIONALPLL_X0_Y15_N0 do not have 
 Info (11178): Promoted 1 clock (1 global)
     Info (11162): vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|clk[0]~CLKENA0 with 40 fanout uses global clock CLKCTRL_G6
 Info (11191): Automatically promoted 1 clock (1 global)
-    Info (11162): CLOCK_50~inputCLKENA0 with 9 fanout uses global clock CLKCTRL_G5
+    Info (11162): CLOCK_50~inputCLKENA0 with 53 fanout uses global clock CLKCTRL_G5
 Info (184021): Fitter periphery placement operations ending: elapsed time is 00:00:00
+Warning (335093): TimeQuest Timing Analyzer is analyzing 3 combinational loops as latches. For more details, run the Check Timing command in the TimeQuest Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'Pacman.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained generated clocks found in the design
 Info (332144): No user constrained base clocks found in the design
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
 Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL  from: refclkin  to: fbclk
     Info (332098): Cell: VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
     Info (332098): Cell: VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+    Info (332098): Cell: main_module|controller|Mux0~0  from: datab  to: combout
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
@@ -2541,38 +2633,37 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "USB_SCL" is assigned to location or region, but does not exist in design
     Warning (15706): Node "USB_SDA" is assigned to location or region, but does not exist in design
     Warning (15706): Node "USB_WR_N" is assigned to location or region, but does not exist in design
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:12
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:13
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:02
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X11_Y70 to location X21_Y81
+    Info (170196): Router estimated peak interconnect usage is 4% of the available device resources in the region that extends from location X67_Y11 to location X77_Y22
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-    Info (170200): Optimizations that may affect the design's timing were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.55 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:05
+Info (11888): Total time spent on timing analysis during the Fitter is 1.02 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:05
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
-Info (144001): Generated suppressed messages file W:/GithubWasd/pacman-from-fpga/src/output_files/Pacman.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 172 warnings
-    Info: Peak virtual memory: 2612 megabytes
-    Info: Processing ended: Mon Mar 19 20:21:33 2018
-    Info: Elapsed time: 00:00:42
-    Info: Total CPU time (on all processors): 00:01:06
+Info (144001): Generated suppressed messages file //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/output_files/Pacman.fit.smsg
+Info: Quartus Prime Fitter was successful. 0 errors, 171 warnings
+    Info: Peak virtual memory: 2610 megabytes
+    Info: Processing ended: Tue Mar 20 18:29:28 2018
+    Info: Elapsed time: 00:00:52
+    Info: Total CPU time (on all processors): 00:01:37
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in W:/GithubWasd/pacman-from-fpga/src/output_files/Pacman.fit.smsg.
+The suppressed messages can be found in //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/output_files/Pacman.fit.smsg.
 
 

@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Mar 19 20:21:30 2018
+Fitter Status : Successful - Tue Mar 20 18:29:24 2018
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Standard Edition
 Revision Name : Pacman
 Top-level Entity Name : Pacman
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 26 / 32,070 ( < 1 % )
-Total registers : 36
+Logic utilization (in ALMs) : 108 / 32,070 ( < 1 % )
+Total registers : 80
 Total pins : 102 / 457 ( 22 % )
 Total virtual pins : 0
 Total block memory bits : 57,600 / 4,065,280 ( 1 % )

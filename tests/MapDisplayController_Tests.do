@@ -18,7 +18,7 @@ add wave {/*}
 
 force {reset} 1 0ns, 0 10ns
 force {clock_50} 0 0ns, 1 5ns -r 10ns
-force {type} 3'b000
+force {sprite_type} 3'b000
 force {en} 1
 
 run 3000ns

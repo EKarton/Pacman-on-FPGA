@@ -10,7 +10,7 @@
  */
 module CharacterDisplayController(
 	input en, 
-	input pacman_orientation;
+	input pacman_orientation,
 	output reg [2:0] character_type, 
 	input [7:0] char_x,
 	input [7:0] char_y,
@@ -22,8 +22,8 @@ module CharacterDisplayController(
 	input clock_50);
 
 	// Drawing the pixels of each character and of each of their bitmaps
-	reg [3:0] cur_sprite_x;
-	reg [3:0] cur_sprite_y;
+	reg [2:0] cur_sprite_x;
+	reg [2:0] cur_sprite_y;
 
 	always @(posedge clock_50) 
 	begin
@@ -37,30 +37,24 @@ module CharacterDisplayController(
 		else if (en == 1'b1)
 		begin
 			// If we are currently drawing the sprite
-			if (cur_sprite_x < 3'd7 || cur_sprite_y < 3'd7)
-			begin
-
-				// If we have finished drawing one row, go to next row
-				if (cur_sprite_x == 3'd7)
+			if (cur_sprite_y != 3'd4 || cur_sprite_x != 3'd4)
+			begin			
+				if(cur_sprite_x < 3'd4)
+					cur_sprite_x <= cur_sprite_x + 3'd1;
+					
+				else if (cur_sprite_x == 3'd4)
 				begin
 					cur_sprite_x <= 3'd0;
-					cur_sprite_y <= cur_sprite_y + 3'd1;									
-				end				
-
-				// if we are not finished drawing a row, continue on the row
-				else 
-				begin
-					cur_sprite_x <= cur_sprite_x + 3'd1;					
+					cur_sprite_y <= cur_sprite_y + 3'd1;
 				end
 			end
-
+			
 			// If we have finished drawing the sprite
 			else 
 			begin
-				// Reset the current sprite coordinates
+				character_type <= character_type + 3'd1;
 				cur_sprite_x <= 3'd0;
-				cur_sprite_y <= 3'd0;
-				character_type <= character_type + 3'd1;		
+				cur_sprite_y <= 3'd0;		
 			end		
 		end
 	end	
@@ -70,13 +64,13 @@ module CharacterDisplayController(
 	assign vga_y = (char_y * 8'd7) + {5'd00000, cur_sprite_y} + 8'd1;
 
 	// Determining the bitmap of the characters
-	reg [6:0] row0;
-	reg [6:0] row1;
-	reg [6:0] row2;
-	reg [6:0] row3;
-	reg [6:0] row4;
-	reg [6:0] row5;
-	reg [6:0] row6;
+	reg [4:0] row0;
+	reg [4:0] row1;
+	reg [4:0] row2;
+	reg [4:0] row3;
+	reg [4:0] row4;
+	
+	reg [2:0] sprite_color;
 
 	always @(*)
 	begin
@@ -84,44 +78,74 @@ module CharacterDisplayController(
 		begin
 			if (pacman_orientation == 1'b0) // Facing left
 			begin
-				row0 = 7'b0111100;
-				row1 = 7'b1111110;
-				row2 = 7'b0011111;
-				row3 = 7'b0001111;
-				row4 = 7'b0011111;
-				row5 = 7'b1111110;
-				row6 = 7'b0111100;
+				row0 = 5'b01111;
+				row1 = 5'b11111;
+				row2 = 5'b00111;
+				row3 = 5'b00011;
+				row4 = 5'b00111;
 			end
 			else // Facing right
 			begin
-				row0 = 7'b0011110;
-				row1 = 7'b0111111;
-				row2 = 7'b1111100;
-				row3 = 7'b1111000;
-				row4 = 7'b1111100;
-				row5 = 7'b0111111;
-				row6 = 7'b0011110;
+				row0 = 5'b00111;
+				row1 = 5'b01111;
+				row2 = 5'b11111;
+				row3 = 5'b11110;
+				row4 = 5'b11111;
 			end
 			
-			vga_color = 3'b000;
+			sprite_color = 3'b110;
 		end
 		else if (character_type) // Ghosts
 		begin
-			row0 = 7'b0000000;
-			row1 = 7'b0011100;
-			row2 = 7'b0101010;
-			row3 = 7'b0111110;
-			row4 = 7'b0111110;
-			row5 = 7'b0101010;
-			row6 = 7'b0000000;			
+			row0 = 5'b00100;
+			row1 = 5'b01010;
+			row2 = 5'b01110;
+			row3 = 5'b01110;
+			row4 = 5'b00000;		
 
 			case (character_type)
-				3'b001: vga_color = 3'b001;
-				3'b010: vga_color = 3'b100;
-				3'b011: vga_color = 3'b010;
-				3'b100: vga_color = 3'b110;
+				3'b001: sprite_color = 3'b001;
+				3'b010: sprite_color = 3'b100;
+				3'b011: sprite_color = 3'b010;
+				3'b100: sprite_color = 3'b110;
 			endcase
 		end
+	end
+	
+	reg [6:0] selected_row;
+	always @(*)
+	begin
+		case (cur_sprite_y)
+			4'd0: selected_row = row0;
+			4'd1: selected_row = row1;
+			4'd2: selected_row = row2;
+			4'd3: selected_row = row3;
+			4'd4: selected_row = row4;
+
+			default: selected_row = row0;
+		endcase
+	end
+	
+	reg selected_col;
+	always @(*)
+	begin
+		case (cur_sprite_x)
+			4'd0: selected_col = selected_row[0];
+			4'd1: selected_col = selected_row[1];
+			4'd2: selected_col = selected_row[2];
+			4'd3: selected_col = selected_row[3];
+			4'd4: selected_col = selected_row[4];
+
+			default: selected_col = selected_row[0];
+		endcase
+	end
+	
+	always @(*)
+	begin
+		case (selected_col)
+			1'b1: vga_color = sprite_color;
+			1'b0: vga_color = 3'b000;
+		endcase
 	end
 
 endmodule

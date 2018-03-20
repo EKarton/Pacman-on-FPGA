@@ -11,18 +11,29 @@ module MapController(
 	input [2:0] sprite_data_in, 
 	output [2:0] sprite_data_out, 
 	input readwrite, 
-	input clock_50;
+	input clock_50);
 
-	wire [8:0] extended_map_x;
-	assign extended_map_x = {3'b000, map_x};
+	wire [8:0] extended_map_x = {3'b000, map_x};
 
-	wire [8:0] extended_map_y;
-	assign extended_map_y = {3'b000, map_y};
+	wire [8:0] extended_map_y = {3'b000, map_y};
 	
 
 	wire [8:0] client_address;
-	assign client_address = (9'd20 * extended_map_y) + extended_map_x;
+	assign client_address = (9'd21 * extended_map_y) + extended_map_x;
 	
-	Map map(client_address, clock_50, sprite_data_in, readwrite, sprite_data_out);
+	/*
+		address,
+	clock,
+	data,
+	wren,
+	q);
+	*/
+	Map map(
+		.address(client_address), 
+		.clock(clock_50), 
+		.data(sprite_data_in), 
+		.wren(readwrite), 
+		.q(sprite_data_out)
+		);
 
 endmodule

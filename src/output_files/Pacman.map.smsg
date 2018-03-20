@@ -1,1 +1,3 @@
-Warning (10268): Verilog HDL information at RateDivider.v(18): always construct contains both blocking and non-blocking assignments File: W:/GithubWasd/pacman-from-fpga/src/RateDivider.v Line: 18
+Info (10281): Verilog HDL Declaration information at Pacman.v(18): object "HEX0" differs only in case from object "hex0" in the same scope File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 18
+Info (10281): Verilog HDL Declaration information at Pacman.v(18): object "HEX1" differs only in case from object "hex1" in the same scope File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 18
+Info (10281): Verilog HDL Declaration information at Pacman.v(18): object "HEX2" differs only in case from object "hex2" in the same scope File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 18

@@ -1,0 +1,27 @@
+module Counter(
+	input [27:0] interval,
+	input reset,
+	input en,
+	input clock_50,
+	output reg [27:0] cur_time);
+
+	always @(posedge clock_50)
+	begin
+		if (reset == 1'b1)
+		begin
+			cur_time <= interval;
+		end
+		else if (en == 1'b1)
+		begin
+			if (cur_time == 27'd1) // Prevent going to negative #s
+			begin
+				cur_time <= interval;
+			end
+			else
+			begin
+				cur_time <= cur_time - 1'b1;
+			end
+		end
+	end
+	
+endmodule
