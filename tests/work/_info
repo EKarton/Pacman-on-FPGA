@@ -13,13 +13,13 @@ vMapDisplayController
 !i10b 1
 !s100 SbkUVCBza7EnO?45BCV6P1
 IS^0NYlzIUJ^lA0NOoh=j_1
-VDg1SIo80bB@j0V0VzS_@n1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
 R0
 w1521518071
 8../src/MapDisplayController.v
 F../src/MapDisplayController.v
 L0 4
-OV;L;10.5b;63
+Z2 OV;L;10.5b;63
 r1
 !s85 0
 31
@@ -27,6 +27,28 @@ r1
 !s107 ../src/MapDisplayController.v|
 !s90 -reportprogress|300|-timescale|1ns/1ns|../src/MapDisplayController.v|
 !i113 1
-o-timescale 1ns/1ns
-tCvgOpt 0
+Z3 o-timescale 1ns/1ns
+Z4 tCvgOpt 0
 n@map@display@controller
+vRateDivider
+!s110 1521518997
+!i10b 1
+!s100 =kJ]O8?D:ZJmzZ4`kQ3EP3
+IGAi`?M]c4JZ73QGcZPBWi1
+R1
+R0
+w1521518995
+8../src/RateDivider.v
+F../src/RateDivider.v
+L0 9
+R2
+r1
+!s85 0
+31
+!s108 1521518997.000000
+!s107 ../src/RateDivider.v|
+!s90 -reportprogress|300|-timescale|1ns/1ns|../src/RateDivider.v|
+!i113 1
+R3
+R4
+n@rate@divider
