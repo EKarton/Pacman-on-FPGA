@@ -65,8 +65,6 @@ module Pacman(
 	defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
 	defparam VGA.BACKGROUND_IMAGE = "black.mif";
 	
-	assign LEDR[7:0] = x;
-	
 	MainModule main_module(KEY[3:0], CLOCK_50, reset, colour, x, y, plot);
 	
 endmodule
@@ -78,24 +76,25 @@ module MainModule(
 	output [2:0] colour, 
 	output [7:0] vga_x, 
 	output [6:0] vga_y, 
-	output vga_plot);
-	
-		
-	wire game_clock;
-	RateDivider game_clock_counter(27'd833, 1'b1, 1'b1, CLOCK_50, game_clock);
+	output vga_plot);	
+			
+	// The clock, which should run at 60 fps.
+	wire frame_clock;
+	RateDivider frame_clock_counter(27'd83333, reset, 1'b1, CLOCK_50, frame_clock);
 	
 	// The map data
-	wire grid_x;
-	wire grid_y;
-	wire grid_data_in;
-	wire grid_data_out;
-	wire grid_readwrite;
-	assign grid_readwrite = 1'b0;
+	wire [4:0] map_x;
+	wire [4:0] map_y;
+	wire [2:0] sprite_data_in;
+	wire [2:0] sprite_data_out;
+	wire map_readwrite;
+	assign map_readwrite = 1'b0;
 	
-	MapController map(grid_x, grid_y, grid_data_in, grid_data_out, grid_readwrite, clock_50, 1'b1);
+	// The map, containing map data
+	MapController map(map_x, map_y, sprite_data_in, sprite_data_out, map_readwrite, clock_50);
 	
 	
 	// The display controller, which runs at 60 fps
-	MapDisplayController(clock_50, grid_x, grid_y, grid_data_out, reset, vga_plot, vga_x, vga_y, reset, clock_50);
+	MapDisplayController controller(frame_clock, grid_x, grid_y, grid_data_out, reset, vga_plot, vga_x, vga_y, reset, clock_50);
 	
 endmodule

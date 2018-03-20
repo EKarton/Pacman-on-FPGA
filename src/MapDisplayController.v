@@ -8,7 +8,7 @@ module MapDisplayController(
 	input en, 
 	output reg [4:0] map_x, 
 	output reg [4:0] map_y, 
-	input [3:0] sprite_type, 
+	input [2:0] sprite_type, 
 	output reg vga_plot, 
 	output [7:0] vga_x,
 	output [6:0] vga_y,
