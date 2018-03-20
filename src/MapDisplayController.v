@@ -11,14 +11,14 @@ module MapDisplayController(
 	input [2:0] sprite_type, 
 	output reg vga_plot, 
 	output [7:0] vga_x,
-	output [6:0] vga_y,
+	output [7:0] vga_y,
 	output reg [2:0] vga_color,
 	input reset, 
 	input clock_50);
 
 	// Going through the grid (note that the grid is 21 x 21!)
-	reg [4:0] cur_sprite_x;
-	reg [4:0] cur_sprite_y;
+	reg [3:0] cur_sprite_x;
+	reg [3:0] cur_sprite_y;
 
 	always @(posedge clock_50) 
 	begin
@@ -26,27 +26,27 @@ module MapDisplayController(
 		begin
 			map_x <= 5'd0;
 			map_y <= 5'd0;
-			cur_sprite_x <= 5'd0;
-			cur_sprite_y <= 5'd0;	
+			cur_sprite_x <= 3'd0;
+			cur_sprite_y <= 3'd0;	
 			vga_plot <= 1'b1;
 		end
 		else if (en == 1'b1)
 		begin
 			// If we are currently drawing the sprite
-			if (cur_sprite_x < 5'd7 || cur_sprite_y < 5'd7)
+			if (cur_sprite_x < 3'd7 || cur_sprite_y < 3'd7)
 			begin
 
 				// If we have finished drawing one row, go to next row
-				if (cur_sprite_x == 5'd7)
+				if (cur_sprite_x == 3'd7)
 				begin
-					cur_sprite_x <= 5'd0;
-					cur_sprite_y <= cur_sprite_y + 5'd1;									
+					cur_sprite_x <= 3'd0;
+					cur_sprite_y <= cur_sprite_y + 3'd1;									
 				end				
 
 				// if we are not finished drawing a row, continue on the row
 				else 
 				begin
-					cur_sprite_x <= cur_sprite_x + 5'd1;					
+					cur_sprite_x <= cur_sprite_x + 3'd1;					
 				end
 			end
 
@@ -54,8 +54,8 @@ module MapDisplayController(
 			else 
 			begin
 				// Reset the current sprite coordinates
-				cur_sprite_x <= 5'd0;
-				cur_sprite_y <= 5'd0;			
+				cur_sprite_x <= 3'd0;
+				cur_sprite_y <= 3'd0;			
 
 				if (map_x == 5'd21 && map_y < 5'd21)
 				begin
@@ -71,8 +71,8 @@ module MapDisplayController(
 	end	
 
 	// Determine the absolute pixel coordinates on the screen
-	assign vga_x = (map_x * 5'd7) + cur_sprite_x + 5'd1;
-	assign vga_y = (map_y * 5'd7) + cur_sprite_y + 5'd1;
+	assign vga_x = ({3'b000, map_x} * 8'd7) + {5'd00000, cur_sprite_x} + 8'd1;
+	assign vga_y = ({3'b000, map_y} * 8'd7) + {5'd00000, cur_sprite_y} + 8'd1;
 
 	// Determining the sprite
 	reg [6:0] row0;

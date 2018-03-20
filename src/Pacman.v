@@ -39,7 +39,7 @@ module Pacman(
 	// Create the colour, x, y and writeEn wires that are inputs to the controller.
 	wire [2:0] colour;
 	wire [7:0] x;
-	wire [6:0] y;
+	wire [7:0] y;
 	wire plot;
 	
 	// Create an Instance of a VGA controller - there can be only one!
@@ -49,8 +49,8 @@ module Pacman(
 			.resetn(reset),
 			.clock(CLOCK_50),
 			.colour(colour),
-			.x(1'b1),
-			.y(1'b1),
+			.x(x),
+			.y(y[6:0]),
 			.plot(1'b1),
 			.VGA_R(VGA_R),
 			.VGA_G(VGA_G),
@@ -75,7 +75,7 @@ module MainModule(
 	input reset,
 	output [2:0] colour, 
 	output [7:0] vga_x, 
-	output [6:0] vga_y, 
+	output [7:0] vga_y, 
 	output vga_plot);	
 			
 	// The clock, which should run at 60 fps.
