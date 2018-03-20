@@ -1,0 +1,32 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Emilio K/Documents/School (Year 2)/CSC 258/Final Project/pacman-from-fpga/tests
+vMapDisplayController
+!s110 1521518099
+!i10b 1
+!s100 SbkUVCBza7EnO?45BCV6P1
+IS^0NYlzIUJ^lA0NOoh=j_1
+VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1521518071
+8../src/MapDisplayController.v
+F../src/MapDisplayController.v
+L0 4
+OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1521518099.000000
+!s107 ../src/MapDisplayController.v|
+!s90 -reportprogress|300|-timescale|1ns/1ns|../src/MapDisplayController.v|
+!i113 1
+o-timescale 1ns/1ns
+tCvgOpt 0
+n@map@display@controller
