@@ -36,7 +36,7 @@ def genrerate_mif():
 		for j in range(0, 21):
 			type_binary = '{0:03b}'.format(map[i][j])
 			address_binary = '{0:09b}'.format(cur_address)
-			output += "\t" + str(address_binary) + "\t : \t" + str(type_binary) + "\n";
+			output += "\t" + str(address_binary) + "\t : \t" + str(type_binary) + ";\n";
 			cur_address += 1
 
 	output += "END;\n"
