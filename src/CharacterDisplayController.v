@@ -12,8 +12,8 @@ module CharacterDisplayController(
 	input en, 
 	input pacman_orientation,
 	output reg [2:0] character_type, 
-	input [7:0] char_x,
-	input [7:0] char_y,
+	input unsigned [7:0] char_x,
+	input unsigned [7:0] char_y,
 	output reg vga_plot, 
 	output [7:0] vga_x,
 	output [7:0] vga_y,
@@ -22,12 +22,21 @@ module CharacterDisplayController(
 	input clock_50);
 
 	// Drawing the pixels of each character and of each of their bitmaps
-	reg [2:0] cur_sprite_x;
-	reg [2:0] cur_sprite_y;
+	reg unsigned [2:0] cur_sprite_x;
+	reg unsigned [2:0] cur_sprite_y;
+	
+	// IS REQUIRED! There is a bug in Quartus where all registers must be 
+	// initialized to a value regardless of clock cycle.
+	initial
+	begin
+		character_type = 3'd0;
+		cur_sprite_x = 3'd0;
+		cur_sprite_y = 3'd0;
+	end
 
 	always @(posedge clock_50) 
 	begin
-		if (reset == 1'b1 || character_type == 3'd4) 
+		if (reset == 1'b1) 
 		begin
 			character_type <= 3'd0;
 			cur_sprite_x <= 3'd0;
@@ -43,7 +52,7 @@ module CharacterDisplayController(
 					cur_sprite_x <= cur_sprite_x + 3'd1;
 				end
 					
-				else if (cur_sprite_x == 3'd4)
+				else // if (cur_sprite_x == 3'd4)
 				begin
 					cur_sprite_x <= 3'd0;
 					cur_sprite_y <= cur_sprite_y + 3'd1;
@@ -53,16 +62,24 @@ module CharacterDisplayController(
 			// If we have finished drawing the sprite
 			else 
 			begin
-				character_type <= character_type + 3'd1;
 				cur_sprite_x <= 3'd0;
-				cur_sprite_y <= 3'd0;		
+				cur_sprite_y <= 3'd0;
+				
+				if (character_type == 3'd3)
+				begin
+					character_type <= 3'd0;
+				end
+				else
+				begin
+					character_type <= character_type + 3'd1;
+				end		
 			end		
 		end
 	end	
 
 	// Determine the absolute pixel coordinates on the screen
-	assign vga_x = (char_x * 8'd7) + {5'd00000, cur_sprite_x} + 8'd1;
-	assign vga_y = (char_y * 8'd7) + {5'd00000, cur_sprite_y} + 8'd1;
+	assign vga_x = char_x + {5'd00000, cur_sprite_x} + 8'd26;
+	assign vga_y = char_y + {5'd00000, cur_sprite_y} + 8'd1;
 
 	// Determining the bitmap of the characters
 	reg [4:0] row0;
@@ -79,36 +96,37 @@ module CharacterDisplayController(
 		begin
 			if (pacman_orientation == 1'b0) // Facing left
 			begin
-				row0 = 5'b01111;
-				row1 = 5'b11111;
-				row2 = 5'b00111;
-				row3 = 5'b00011;
-				row4 = 5'b00111;
+				row0 = 5'b01110;
+				row1 = 5'b00111;
+				row2 = 5'b00011;
+				row3 = 5'b00111;
+				row4 = 5'b01110;
 			end
 			else // Facing right
 			begin
-				row0 = 5'b00111;
-				row1 = 5'b01111;
-				row2 = 5'b11111;
-				row3 = 5'b11110;
-				row4 = 5'b11111;
+				row0 = 5'b01110;
+				row1 = 5'b01100;
+				row2 = 5'b11000;
+				row3 = 5'b11100;
+				row4 = 5'b01110;
 			end
 			
 			sprite_color = 3'b110;
 		end
-		else if (character_type) // Ghosts
+		else // The ghosts
 		begin
-			row0 = 5'b00100;
-			row1 = 5'b01010;
-			row2 = 5'b01110;
-			row3 = 5'b01110;
-			row4 = 5'b00000;		
+			row0 = 5'b01110;
+			row1 = 5'b10101;
+			row2 = 5'b11111;
+			row3 = 5'b11111;
+			row4 = 5'b10101;		
 
 			case (character_type)
-				3'b001: sprite_color = 3'b001;
-				3'b010: sprite_color = 3'b100;
-				3'b011: sprite_color = 3'b010;
-				3'b100: sprite_color = 3'b110;
+				3'b001: sprite_color = 3'b011; // Cyan color
+				3'b010: sprite_color = 3'b100; // Red color
+				3'b011: sprite_color = 3'b010; // Green
+				3'b100: sprite_color = 3'b101; // Magenta
+				default: sprite_color = 3'b000;
 			endcase
 		end
 	end

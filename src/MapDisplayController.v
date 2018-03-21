@@ -6,43 +6,52 @@
  */
 module MapDisplayController(
 	input en, 
-	output reg [4:0] map_x, 
-	output reg [4:0] map_y, 
+	output reg unsigned [4:0] map_x, 
+	output reg unsigned [4:0] map_y, 
 	input [2:0] sprite_type, 
 	output reg vga_plot, 
-	output [7:0] vga_x,
-	output [7:0] vga_y,
+	output unsigned [7:0] vga_x,
+	output unsigned [7:0] vga_y,
 	output reg [2:0] vga_color,
 	input reset, 
 	input clock_50,
 	output [7:0] debug_leds);
 	
-	reg [2:0] cur_sprite_x;
-	reg [2:0] cur_sprite_y;
-
-	assign debug_leds[4:0] = map_x;
+	reg unsigned [2:0] cur_sprite_x;
+	reg unsigned [2:0] cur_sprite_y;
+	
+	// IS REQUIRED! There is a bug in Quartus where all registers must be 
+	// initialized to a value regardless of clock cycle.
+	initial 
+	begin
+		map_x = 5'd0;
+		map_y = 5'd0;
+		cur_sprite_x = 3'd0;
+		cur_sprite_y = 3'd0;
+		vga_plot = 1'b0;
+		vga_color = 3'd0;
+	end 
 
 	always @(posedge clock_50) 
 	begin
-		if (reset == 1'b1 || map_y == 5'd21) 
+		if (reset == 1'b1) 
 		begin
 			map_x <= 5'd0;
 			map_y <= 5'd0;
 			cur_sprite_x <= 3'd0;
 			cur_sprite_y <= 3'd0;	
+			vga_plot <= 1'b1;
 		end
-		else //if (en == 1'b1)
+		
+		else
 		begin
-
 			// If we are currently drawing the sprite
 			if (cur_sprite_y != 3'd4 || cur_sprite_x != 3'd4)
 			begin			
 				if(cur_sprite_x < 3'd4)
-				begin
 					cur_sprite_x <= cur_sprite_x + 3'd1;
-				end
 					
-				else if (cur_sprite_x == 3'd4)
+				else //if (cur_sprite_x == 3'd4)
 				begin
 					cur_sprite_x <= 3'd0;
 					cur_sprite_y <= cur_sprite_y + 3'd1;
@@ -52,14 +61,22 @@ module MapDisplayController(
 			// If we have finished drawing the sprite
 			else 
 			begin
-				// Reset the current sprite coordinates
 				cur_sprite_x <= 3'd0;
 				cur_sprite_y <= 3'd0;
-
+				
+				// Reset the current sprite coordinates
 				if (map_x == 5'd20)
 				begin
-					map_x <= 5'd0;
-					map_y <= map_y + 5'd1;	
+					map_x <= 5'd0;											
+					
+					if (map_y == 5'd20)
+					begin
+						map_y <= 5'd0;
+					end
+					else
+					begin
+						map_y <= map_y + 5'd1;
+					end
 				end
 				else 
 				begin
@@ -68,12 +85,10 @@ module MapDisplayController(
 			end		
 		end
 	end	
-	
-	
 
 	// Determine the absolute pixel coordinates on the screen
-	assign vga_x = ({3'b000, map_x} * 8'd5) + {4'd0, cur_sprite_x};
-	assign vga_y = ({3'b000, map_y} * 8'd5) + {4'd0, cur_sprite_y};
+	assign vga_x = ({3'b000, map_x} * 8'd5) + {5'd0, cur_sprite_x} + 8'd26;
+	assign vga_y = ({3'b000, map_y} * 8'd5) + {5'd0, cur_sprite_y} + 8'd1;
 
 	// Determining the sprite
 	reg [4:0] row0;
@@ -99,9 +114,9 @@ module MapDisplayController(
 		else if (sprite_type == 3'b001) // A big orb
 		begin
 			row0 = 5'b00000;
-			row1 = 5'b01110;
+			row1 = 5'b00100;
 			row2 = 5'b01110;
-			row3 = 5'b01110;
+			row3 = 5'b00100;
 			row4 = 5'b00000;
 
 			sprite_color = 3'b111;
@@ -109,8 +124,8 @@ module MapDisplayController(
 		else if (sprite_type == 3'b010) // A small orb
 		begin
 			row0 = 5'b00000;
-			row1 = 5'b01100;
-			row2 = 5'b01100;
+			row1 = 5'b00000;
+			row2 = 5'b00100;
 			row3 = 5'b00000;
 			row4 = 5'b00000;
 			sprite_color = 3'b111;
@@ -177,15 +192,9 @@ module MapDisplayController(
 	
 	always @(*)
 	begin
-		vga_color = sprite_color;
-		
-		if (selected_col == 1'b1 && reset == 1'b0)
-		begin
-			vga_plot = 1'b1;
-		end
-		else
-		begin
-			vga_plot = 1'b0;
-		end
+		case (selected_col)
+			1'b1: vga_color = sprite_color;
+			1'b0: vga_color = 3'b000;
+		endcase
 	end
 endmodule

@@ -2,40 +2,20 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1100mV 85C Model Setup 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : -5.299
-TNS   : -12.452
-
 Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -3.729
-TNS   : -441.907
+Slack : 11.700
+TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
-Slack : 33.938
+Slack : 35.778
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
-Slack : 0.364
+Slack : 0.362
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.445
-TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Hold 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.953
-TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Recovery 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : -5.790
-TNS   : -16.924
-
-Type  : Slow 1100mV 85C Model Removal 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.804
-TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.362
+Slack : 0.414
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
@@ -43,23 +23,19 @@ Slack : 1.666
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 8.877
+Slack : 8.874
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
-Slack : 18.781
+Slack : 18.778
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Setup 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : -5.384
-TNS   : -12.651
-
 Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -3.328
-TNS   : -384.416
+Slack : 11.649
+TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
-Slack : 34.233
+Slack : 35.887
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
@@ -67,23 +43,7 @@ Slack : 0.376
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.415
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Hold 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.853
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Recovery 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : -5.943
-TNS   : -17.255
-
-Type  : Slow 1100mV 0C Model Removal 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.714
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.412
+Slack : 0.389
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
@@ -91,7 +51,7 @@ Slack : 1.666
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : 8.834
+Slack : 8.833
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
@@ -99,39 +59,19 @@ Slack : 18.763
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -2.948
-TNS   : -311.835
-
-Type  : Fast 1100mV 85C Model Setup 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : -2.817
-TNS   : -6.374
+Slack : 15.184
+TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
-Slack : 35.853
+Slack : 37.486
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
-Slack : 0.178
+Slack : 0.177
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.240
-TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Hold 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.697
-TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Recovery 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : -3.004
-TNS   : -8.899
-
-Type  : Fast 1100mV 85C Model Removal 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.537
-TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.430
+Slack : 0.238
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
@@ -143,43 +83,23 @@ Slack : 8.808
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
-Slack : 18.892
+Slack : 18.893
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Setup 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : -2.671
-TNS   : -5.998
-
 Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -2.320
-TNS   : -237.462
+Slack : 15.587
+TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
-Slack : 36.382
+Slack : 37.717
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
-Slack : 0.168
+Slack : 0.170
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
-Slack : 0.221
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Hold 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.594
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Recovery 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : -2.855
-TNS   : -8.481
-
-Type  : Fast 1100mV 0C Model Removal 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.461
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'MainModule:main_module|CharacterDisplayController:controller|character_type[0]'
-Slack : 0.445
+Slack : 0.211
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'

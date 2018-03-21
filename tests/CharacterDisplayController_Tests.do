@@ -20,7 +20,6 @@ add wave {/*}
 force {reset} 1 0ns, 0 100ns
 force {clock_50} 0 0ns, 1 5ns -r 10ns
 force {pacman_orientation} 0
-force {character_type} 3'b000
 force {char_x} 8'd20
 force {char_y} 8'd21
 force {en} 1

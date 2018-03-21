@@ -49,7 +49,7 @@ module Pacman(
 			.resetn(~reset),
 			.clock(CLOCK_50),
 			.colour(colour),
-			.x(x[6:0]),
+			.x(x),
 			.y(y[6:0]),
 			.plot(plot),
 			.VGA_R(VGA_R),
@@ -103,7 +103,7 @@ module Pacman(
 		.pacman_controls(KEY[3:0]), 
 		.clock_50(CLOCK_50), 
 		.reset(reset), 
-		.colour(colour), 
+		.vga_colour(colour), 
 		.vga_x(x), 
 		.vga_y(y), 
 		.vga_plot(plot),
@@ -115,19 +115,20 @@ module MainModule(
 	input[3:0] pacman_controls, 
 	input clock_50, 
 	input reset,
-	output [2:0] colour, 
+	output [2:0] vga_colour, 
 	output [7:0] vga_x, 
 	output [7:0] vga_y, 
 	output vga_plot,
 	output [7:0] debug_leds);	
+
+	wire [7:0] char_x_in, char_y_in, char_x_out, char_y_out;
+	wire [2:0] character_type;
 	
-	// The map data
 	wire [4:0] map_x;
 	wire [4:0] map_y;
 	wire [2:0] sprite_data_in;
 	wire [2:0] sprite_data_out;
-	wire map_readwrite;
-	assign map_readwrite = 1'b0;
+	wire map_readwrite = 1'b0;
 	
 	// The map, containing map data
 	MapController map(
@@ -139,90 +140,32 @@ module MainModule(
 		.clock_50(clock_50)
 		);
 	
-	
-	// The display controller, which runs at 60 fps
-	/*
-		input en, 
-	output reg [4:0] map_x, 
-	output reg [4:0] map_y, 
-	input [2:0] sprite_type, 
-	output reg vga_plot, 
-	output [7:0] vga_x,
-	output [7:0] vga_y,
-	output reg [2:0] vga_color,
-	input reset, 
-	input clock_50,
-	output [7:0] debug_leds);
-	*/
-	
-	/*
-	MapDisplayController controller(
-		.en(1'b1), 
-		.map_x(map_x), 
-		.map_y(map_y), 
-		.sprite_type(sprite_data_out), 
-		.vga_plot(vga_plot), 
-		.vga_x(vga_x), 
-		.vga_y(vga_y), 
-		.vga_color(colour),
-		.reset(reset), 
-		.clock_50(clock_50), 
-		.debug_leds(debug_leds)
-		);
-	*/
-	
-	/*
-module CharacterRegisters(
-	input [7:0] x_in,
-	input [7:0] y_in,
-	output reg [7:0] x_out,
-	output reg [7:0] y_out,
-	input [2:0] character_type,
-	input readwrite,
-	input clock_50,
-	input reset
-	);
-	*/
-	
-	wire [7:0] x_in, y_in, x_out, y_out;
-	wire [2:0] character_type;
-	
 	CharacterRegisters character_registers(
-		.x_in(x_in),
-		.y_in(y_in),
-		.x_out(x_out),
-		.y_out(y_out),
+		.x_in(char_x_in),
+		.y_in(char_y_in),
+		.x_out(char_x_out),
+		.y_out(char_y_out),
 		.character_type(character_type),
 		.readwrite(1'b0),
 		.clock_50(clock_50),
 		.reset(reset)
 		);
-	
-	/*
-		input en, 
-	input pacman_orientation,
-	output reg [2:0] character_type, 
-	input [7:0] char_x,
-	input [7:0] char_y,
-	output reg vga_plot, 
-	output [7:0] vga_x,
-	output [7:0] vga_y,
-	output reg [2:0] vga_color,
-	input reset, 
-	input clock_50);
-	*/
-	CharacterDisplayController controller(
-		.en(1'b1),
+		
+	DisplayController display_controller(
+		.en(1'b1), 
+		.map_x(map_x), 
+		.map_y(map_y), 
+		.sprite_type(sprite_data_out), 
 		.pacman_orientation(pacman_controls[0]),
-		.character_type(character_type),
-		.char_x(x_out),
-		.char_y(y_out),
-		.vga_plot(vga_plot),
+		.character_type(character_type), 
+		.char_x(char_x_out),
+		.char_y(char_y_out),
+		.vga_plot(vga_plot), 
 		.vga_x(vga_x),
 		.vga_y(vga_y),
-		.vga_color(colour),
-		.reset(reset),
-		.clock_50(clock_50)
+		.vga_color(vga_colour),
+		.reset(reset), 
+		.clock_50(clock_50),
+		.debug_leds(debug_leds)
 		);
-	
 endmodule

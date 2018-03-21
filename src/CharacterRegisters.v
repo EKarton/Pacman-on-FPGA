@@ -56,20 +56,20 @@ module CharacterRegisters(
 		// If we are performing a reset
 		if (reset == 1'b1) 
 		begin
-			pacman_x_coordinate <= 8'd2;
-			pacman_y_coordinate <= 8'd2;
+			pacman_x_coordinate <= 8'd10;
+			pacman_y_coordinate <= 8'd10;
 
-			ghost1_x_coordinate <= 8'd20;
-			ghost1_y_coordinate <= 8'd20;
+			ghost1_x_coordinate <= 8'd40;
+			ghost1_y_coordinate <= 8'd35;
 
-			ghost2_x_coordinate <= 8'd40;
-			ghost2_y_coordinate <= 8'd40;
+			ghost2_x_coordinate <= 8'd45;
+			ghost2_y_coordinate <= 8'd35;
 
-			ghost3_x_coordinate <= 8'd60;
-			ghost3_y_coordinate <= 8'd60;
+			ghost3_x_coordinate <= 8'd50;
+			ghost3_y_coordinate <= 8'd35;
 
-			ghost4_x_coordinate <= 8'd80;
-			ghost4_y_coordinate <= 8'd80;
+			ghost4_x_coordinate <= 8'd55;
+			ghost4_y_coordinate <= 8'd35;
 		end
 
 		// If we are performing a read/write operation

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Pacman
-Tue Mar 20 18:28:33 2018
+Wed Mar 21 19:24:41 2018
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Standard Edition
 
 
@@ -14,7 +14,7 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Standard Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. User-Specified and Inferred Latches
+  9. Analysis & Synthesis DSP Block Usage Summary
  10. Registers Removed During Synthesis
  11. Removed Registers Triggering Further Register Optimizations
  12. General Register Statistics
@@ -30,17 +30,16 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Standard Edition
  22. Parameter Settings for User Entity Instance: MainModule:main_module|MapController:map|Map:map|altsyncram:altsyncram_component
  23. altsyncram Parameter Settings by Entity Instance
  24. altpll Parameter Settings by Entity Instance
- 25. Port Connectivity Checks: "MainModule:main_module|CharacterDisplayController:controller"
+ 25. Port Connectivity Checks: "MainModule:main_module|DisplayController:display_controller"
  26. Port Connectivity Checks: "MainModule:main_module|CharacterRegisters:character_registers"
  27. Port Connectivity Checks: "MainModule:main_module|MapController:map"
  28. Port Connectivity Checks: "MainModule:main_module"
  29. Port Connectivity Checks: "HexDisplay:hex0"
  30. Port Connectivity Checks: "RateDivider:divider"
- 31. Port Connectivity Checks: "vga_adapter:VGA"
- 32. Post-Synthesis Netlist Statistics for Top Partition
- 33. Elapsed Time Per Partition
- 34. Analysis & Synthesis Messages
- 35. Analysis & Synthesis Suppressed Messages
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
+ 34. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -67,17 +66,17 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Mar 20 18:28:33 2018           ;
+; Analysis & Synthesis Status     ; Successful - Wed Mar 21 19:24:41 2018           ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Standard Edition ;
 ; Revision Name                   ; Pacman                                          ;
 ; Top-level Entity Name           ; Pacman                                          ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 74                                              ;
+; Total registers                 ; 103                                             ;
 ; Total pins                      ; 102                                             ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 57,600                                          ;
-; Total DSP Blocks                ; 0                                               ;
+; Total block memory bits         ; 59,136                                          ;
+; Total DSP Blocks                ; 1                                               ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
 ; Total HSSI TX PCSs              ; 0                                               ;
@@ -188,8 +187,7 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -205,8 +203,10 @@ agreement for further details.
 ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Map.v                                ; yes             ; User Wizard-Generated File             ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Map.v                                ;         ;
 ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/RateDivider.v                        ; yes             ; User Verilog HDL File                  ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/RateDivider.v                        ;         ;
 ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v                             ; yes             ; User Verilog HDL File                  ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v                             ;         ;
+; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/MapDisplayController.v               ; yes             ; User Verilog HDL File                  ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/MapDisplayController.v               ;         ;
 ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/MapController.v                      ; yes             ; User Verilog HDL File                  ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/MapController.v                      ;         ;
 ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/HexDisplay.v                         ; yes             ; User Verilog HDL File                  ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/HexDisplay.v                         ;         ;
+; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/DisplayController.v                  ; yes             ; User Verilog HDL File                  ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/DisplayController.v                  ;         ;
 ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterRegisters.v                 ; yes             ; User Verilog HDL File                  ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterRegisters.v                 ;         ;
 ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v         ; yes             ; User Verilog HDL File                  ; //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v         ;         ;
 ; altsyncram.tdf                                                                           ; yes             ; Megafunction                           ; c:/quartus-17/quartus/libraries/megafunctions/altsyncram.tdf                             ;         ;
@@ -238,152 +238,151 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 108            ;
+; Estimate of Logic utilization (ALMs needed) ; 152            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 190            ;
+; Combinational ALUT usage for logic          ; 263            ;
 ;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 24             ;
-;     -- 5 input functions                    ; 19             ;
-;     -- 4 input functions                    ; 34             ;
-;     -- <=3 input functions                  ; 113            ;
+;     -- 6 input functions                    ; 39             ;
+;     -- 5 input functions                    ; 29             ;
+;     -- 4 input functions                    ; 37             ;
+;     -- <=3 input functions                  ; 158            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 74             ;
+; Dedicated logic registers                   ; 103            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 102            ;
 ; Total MLAB memory bits                      ; 0              ;
-; Total block memory bits                     ; 57600          ;
+; Total block memory bits                     ; 59136          ;
 ;                                             ;                ;
-; Total DSP Blocks                            ; 0              ;
+; Total DSP Blocks                            ; 1              ;
 ;                                             ;                ;
 ; Total PLLs                                  ; 1              ;
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 54             ;
-; Total fan-out                               ; 1291           ;
-; Average fan-out                             ; 2.70           ;
+; Maximum fan-out                             ; 86             ;
+; Total fan-out                               ; 1691           ;
+; Average fan-out                             ; 2.90           ;
 +---------------------------------------------+----------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                   ;
-+---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+----------------------------+--------------+
-; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                    ; Entity Name                ; Library Name ;
-+---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+----------------------------+--------------+
-; |Pacman                                                 ; 190 (0)             ; 74 (0)                    ; 57600             ; 0          ; 102  ; 0            ; |Pacman                                                                                                ; Pacman                     ; work         ;
-;    |HexDisplay:hex0|                                    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|HexDisplay:hex0                                                                                ; HexDisplay                 ; work         ;
-;    |HexDisplay:hex1|                                    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|HexDisplay:hex1                                                                                ; HexDisplay                 ; work         ;
-;    |HexDisplay:hex2|                                    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|HexDisplay:hex2                                                                                ; HexDisplay                 ; work         ;
-;    |MainModule:main_module|                             ; 53 (0)              ; 15 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module                                                                         ; MainModule                 ; work         ;
-;       |CharacterDisplayController:controller|           ; 47 (47)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module|CharacterDisplayController:controller                                   ; CharacterDisplayController ; work         ;
-;       |CharacterRegisters:character_registers|          ; 6 (6)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module|CharacterRegisters:character_registers                                  ; CharacterRegisters         ; work         ;
-;    |RateDivider:divider|                                ; 46 (46)             ; 29 (29)                   ; 0                 ; 0          ; 0    ; 0            ; |Pacman|RateDivider:divider                                                                            ; RateDivider                ; work         ;
-;    |vga_adapter:VGA|                                    ; 70 (1)              ; 30 (0)                    ; 57600             ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA                                                                                ; vga_adapter                ; work         ;
-;       |altsyncram:VideoMemory|                          ; 9 (0)               ; 4 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram                 ; work         ;
-;          |altsyncram_m6m1:auto_generated|               ; 9 (0)               ; 4 (4)                     ; 57600             ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated                          ; altsyncram_m6m1            ; work         ;
-;             |decode_01a:rden_decode_b|                  ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b ; decode_01a                 ; work         ;
-;             |decode_7la:decode2|                        ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:decode2       ; decode_7la                 ; work         ;
-;             |mux_ifb:mux3|                              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3             ; mux_ifb                    ; work         ;
-;       |vga_address_translator:user_input_translator|    ; 18 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_address_translator:user_input_translator                                   ; vga_address_translator     ; work         ;
-;       |vga_controller:controller|                       ; 42 (32)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_controller:controller                                                      ; vga_controller             ; work         ;
-;          |vga_address_translator:controller_translator| ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator         ; vga_address_translator     ; work         ;
-;       |vga_pll:mypll|                                   ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll                                                                  ; vga_pll                    ; work         ;
-;          |altpll:altpll_component|                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component                                          ; altpll                     ; work         ;
-;             |altpll_80u:auto_generated|                 ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated                ; altpll_80u                 ; work         ;
-+---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------+----------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                    ;
++---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------+--------------+
+; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                     ; Entity Name                ; Library Name ;
++---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------+--------------+
+; |Pacman                                                 ; 263 (1)             ; 103 (0)                   ; 59136             ; 1          ; 102  ; 0            ; |Pacman                                                                                                                 ; Pacman                     ; work         ;
+;    |HexDisplay:hex0|                                    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|HexDisplay:hex0                                                                                                 ; HexDisplay                 ; work         ;
+;    |HexDisplay:hex1|                                    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|HexDisplay:hex1                                                                                                 ; HexDisplay                 ; work         ;
+;    |HexDisplay:hex2|                                    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|HexDisplay:hex2                                                                                                 ; HexDisplay                 ; work         ;
+;    |MainModule:main_module|                             ; 124 (0)             ; 44 (0)                    ; 1536              ; 1          ; 0    ; 0            ; |Pacman|MainModule:main_module                                                                                          ; MainModule                 ; work         ;
+;       |CharacterRegisters:character_registers|          ; 8 (8)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module|CharacterRegisters:character_registers                                                   ; CharacterRegisters         ; work         ;
+;       |DisplayController:display_controller|            ; 107 (39)            ; 36 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module|DisplayController:display_controller                                                     ; DisplayController          ; work         ;
+;          |CharacterDisplayController:cdc_controller|    ; 26 (26)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module|DisplayController:display_controller|CharacterDisplayController:cdc_controller           ; CharacterDisplayController ; work         ;
+;          |MapDisplayController:mdc_controller|          ; 42 (42)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller                 ; MapDisplayController       ; work         ;
+;       |MapController:map|                               ; 9 (9)               ; 0 (0)                     ; 1536              ; 1          ; 0    ; 0            ; |Pacman|MainModule:main_module|MapController:map                                                                        ; MapController              ; work         ;
+;          |Map:map|                                      ; 0 (0)               ; 0 (0)                     ; 1536              ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module|MapController:map|Map:map                                                                ; Map                        ; work         ;
+;             |altsyncram:altsyncram_component|           ; 0 (0)               ; 0 (0)                     ; 1536              ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module|MapController:map|Map:map|altsyncram:altsyncram_component                                ; altsyncram                 ; work         ;
+;                |altsyncram_4go1:auto_generated|         ; 0 (0)               ; 0 (0)                     ; 1536              ; 0          ; 0    ; 0            ; |Pacman|MainModule:main_module|MapController:map|Map:map|altsyncram:altsyncram_component|altsyncram_4go1:auto_generated ; altsyncram_4go1            ; work         ;
+;    |RateDivider:divider|                                ; 46 (46)             ; 29 (29)                   ; 0                 ; 0          ; 0    ; 0            ; |Pacman|RateDivider:divider                                                                                             ; RateDivider                ; work         ;
+;    |vga_adapter:VGA|                                    ; 71 (2)              ; 30 (0)                    ; 57600             ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA                                                                                                 ; vga_adapter                ; work         ;
+;       |altsyncram:VideoMemory|                          ; 9 (0)               ; 4 (0)                     ; 57600             ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory                                                                          ; altsyncram                 ; work         ;
+;          |altsyncram_m6m1:auto_generated|               ; 9 (0)               ; 4 (4)                     ; 57600             ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated                                           ; altsyncram_m6m1            ; work         ;
+;             |decode_01a:rden_decode_b|                  ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_01a:rden_decode_b                  ; decode_01a                 ; work         ;
+;             |decode_7la:decode2|                        ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|decode_7la:decode2                        ; decode_7la                 ; work         ;
+;             |mux_ifb:mux3|                              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3                              ; mux_ifb                    ; work         ;
+;       |vga_address_translator:user_input_translator|    ; 18 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_address_translator:user_input_translator                                                    ; vga_address_translator     ; work         ;
+;       |vga_controller:controller|                       ; 42 (32)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_controller:controller                                                                       ; vga_controller             ; work         ;
+;          |vga_address_translator:controller_translator| ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator                          ; vga_address_translator     ; work         ;
+;       |vga_pll:mypll|                                   ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll                                                                                   ; vga_pll                    ; work         ;
+;          |altpll:altpll_component|                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component                                                           ; altpll                     ; work         ;
+;             |altpll_80u:auto_generated|                 ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pacman|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated                                 ; altpll_80u                 ; work         ;
++---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------+----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                           ;
-+----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-----------+
-; Name                                                                             ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF       ;
-+----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-----------+
-; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 19200        ; 3            ; 19200        ; 3            ; 57600 ; black.mif ;
-+----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-----------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                       ;
++----------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-------------+
+; Name                                                                                                                       ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF         ;
++----------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-------------+
+; MainModule:main_module|MapController:map|Map:map|altsyncram:altsyncram_component|altsyncram_4go1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port      ; 512          ; 3            ; --           ; --           ; 1536  ; MapData.mif ;
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|ALTSYNCRAM                                           ; AUTO ; Simple Dual Port ; 19200        ; 3            ; 19200        ; 3            ; 57600 ; black.mif   ;
++----------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                                                                                  ;
-+------------------------------------------------------------------------------+------------------------------------------------------------------------------+------------------------+
-; Latch Name                                                                   ; Latch Enable Signal                                                          ; Free of Timing Hazards ;
-+------------------------------------------------------------------------------+------------------------------------------------------------------------------+------------------------+
-; MainModule:main_module|CharacterDisplayController:controller|sprite_color[1] ; MainModule:main_module|CharacterDisplayController:controller|sprite_color[0] ; yes                    ;
-; MainModule:main_module|CharacterDisplayController:controller|row0[0]         ; GND                                                                          ; yes                    ;
-; MainModule:main_module|CharacterDisplayController:controller|row1[0]         ; GND                                                                          ; yes                    ;
-; MainModule:main_module|CharacterDisplayController:controller|row2[0]         ; GND                                                                          ; yes                    ;
-; MainModule:main_module|CharacterDisplayController:controller|row4[0]         ; GND                                                                          ; yes                    ;
-; MainModule:main_module|CharacterDisplayController:controller|row0[1]         ; GND                                                                          ; yes                    ;
-; MainModule:main_module|CharacterDisplayController:controller|row4[1]         ; GND                                                                          ; yes                    ;
-; MainModule:main_module|CharacterDisplayController:controller|row1[2]         ; GND                                                                          ; yes                    ;
-; MainModule:main_module|CharacterDisplayController:controller|row4[2]         ; GND                                                                          ; yes                    ;
-; MainModule:main_module|CharacterDisplayController:controller|sprite_color[0] ; MainModule:main_module|CharacterDisplayController:controller|sprite_color[0] ; yes                    ;
-; MainModule:main_module|CharacterDisplayController:controller|sprite_color[2] ; MainModule:main_module|CharacterDisplayController:controller|sprite_color[0] ; yes                    ;
-; Number of user-specified and inferred latches = 11                           ;                                                                              ;                        ;
-+------------------------------------------------------------------------------+------------------------------------------------------------------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Independent 9x9                 ; 1           ;
+; Total number of DSP blocks      ; 1           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 1           ;
++---------------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                                           ;
-+-------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
-; Register name                                                                             ; Reason for Removal                                                                               ;
-+-------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
-; MainModule:main_module|CharacterDisplayController:controller|vga_plot                     ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_y_coordinate[0..3]   ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_y_coordinate[4]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_y_coordinate[5]      ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_y_coordinate[6]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_y_coordinate[7]      ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[0..3]   ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[4]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[5]      ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[6]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[7]      ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost3_y_coordinate[0,1]    ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost3_y_coordinate[2..5]   ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost3_y_coordinate[6,7]    ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost3_x_coordinate[0,1]    ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost3_x_coordinate[2..5]   ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost3_x_coordinate[6,7]    ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost2_y_coordinate[0..2]   ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost2_y_coordinate[3]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost2_y_coordinate[4]      ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost2_y_coordinate[5]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost2_y_coordinate[6,7]    ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost2_x_coordinate[0..2]   ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost2_x_coordinate[3]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost2_x_coordinate[4]      ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost2_x_coordinate[5]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost2_x_coordinate[6,7]    ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost1_y_coordinate[0,1]    ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost1_y_coordinate[2]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost1_y_coordinate[3]      ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost1_y_coordinate[4]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost1_y_coordinate[5..7]   ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost1_x_coordinate[0,1]    ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost1_x_coordinate[2]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost1_x_coordinate[3]      ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost1_x_coordinate[4]      ; Stuck at VCC due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost1_x_coordinate[5..7]   ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|y_out[7]                    ; Lost fanout                                                                                      ;
-; MainModule:main_module|CharacterRegisters:character_registers|x_out[7]                    ; Lost fanout                                                                                      ;
-; MainModule:main_module|CharacterRegisters:character_registers|pacman_y_coordinate[7]      ; Lost fanout                                                                                      ;
-; MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[7]      ; Lost fanout                                                                                      ;
-; MainModule:main_module|CharacterRegisters:character_registers|y_out[0]                    ; Merged with MainModule:main_module|CharacterRegisters:character_registers|x_out[0]               ;
-; MainModule:main_module|CharacterRegisters:character_registers|y_out[1]                    ; Merged with MainModule:main_module|CharacterRegisters:character_registers|x_out[1]               ;
-; MainModule:main_module|CharacterRegisters:character_registers|y_out[2]                    ; Merged with MainModule:main_module|CharacterRegisters:character_registers|x_out[2]               ;
-; MainModule:main_module|CharacterRegisters:character_registers|x_out[5]                    ; Merged with MainModule:main_module|CharacterRegisters:character_registers|x_out[3]               ;
-; MainModule:main_module|CharacterRegisters:character_registers|y_out[3,5]                  ; Merged with MainModule:main_module|CharacterRegisters:character_registers|x_out[3]               ;
-; MainModule:main_module|CharacterRegisters:character_registers|y_out[4]                    ; Merged with MainModule:main_module|CharacterRegisters:character_registers|x_out[4]               ;
-; MainModule:main_module|CharacterRegisters:character_registers|y_out[6]                    ; Merged with MainModule:main_module|CharacterRegisters:character_registers|x_out[6]               ;
-; MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[2..6]   ; Merged with MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[0] ;
-; MainModule:main_module|CharacterRegisters:character_registers|pacman_y_coordinate[0,2..6] ; Merged with MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[0] ;
-; MainModule:main_module|CharacterRegisters:character_registers|pacman_y_coordinate[1]      ; Merged with MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[1] ;
-; MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[0]      ; Stuck at GND due to stuck port data_in                                                           ;
-; MainModule:main_module|CharacterRegisters:character_registers|x_out[0]                    ; Stuck at GND due to stuck port data_in                                                           ;
-; Total Number of Removed Registers = 91                                                    ;                                                                                                  ;
-+-------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                                                  ;
++-----------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                                   ; Reason for Removal                                                                                                                ;
++-----------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+; MainModule:main_module|CharacterRegisters:character_registers|ghost4_y_coordinate[0,1]                          ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost4_y_coordinate[2..4]                         ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost4_y_coordinate[5]                            ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost4_y_coordinate[6,7]                          ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[0..2]                         ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[3]                            ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[4,5]                          ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[6,7]                          ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost3_y_coordinate[0,1]                          ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost3_y_coordinate[2..4]                         ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost3_y_coordinate[5]                            ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost3_y_coordinate[6,7]                          ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost3_x_coordinate[0]                            ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost3_x_coordinate[1]                            ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost3_x_coordinate[2,3]                          ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost3_x_coordinate[4,5]                          ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost3_x_coordinate[6,7]                          ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost2_y_coordinate[0,1]                          ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost2_y_coordinate[2..4]                         ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost2_y_coordinate[5]                            ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost2_y_coordinate[6,7]                          ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost2_x_coordinate[0]                            ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost2_x_coordinate[1]                            ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost2_x_coordinate[2,3]                          ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost2_x_coordinate[4]                            ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost2_x_coordinate[5]                            ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost2_x_coordinate[6,7]                          ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost1_y_coordinate[0,1]                          ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost1_y_coordinate[2..4]                         ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost1_y_coordinate[5]                            ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost1_y_coordinate[6,7]                          ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost1_x_coordinate[0..2]                         ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost1_x_coordinate[3]                            ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost1_x_coordinate[4]                            ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost1_x_coordinate[5]                            ; Stuck at VCC due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost1_x_coordinate[6,7]                          ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|y_out[7]                                          ; Lost fanout                                                                                                                       ;
+; MainModule:main_module|CharacterRegisters:character_registers|pacman_y_coordinate[7]                            ; Lost fanout                                                                                                                       ;
+; MainModule:main_module|CharacterRegisters:character_registers|y_out[0,5]                                        ; Merged with MainModule:main_module|CharacterRegisters:character_registers|x_out[5]                                                ;
+; MainModule:main_module|CharacterRegisters:character_registers|x_out[7]                                          ; Merged with MainModule:main_module|CharacterRegisters:character_registers|x_out[6]                                                ;
+; MainModule:main_module|CharacterRegisters:character_registers|y_out[2,4,6]                                      ; Merged with MainModule:main_module|CharacterRegisters:character_registers|x_out[6]                                                ;
+; MainModule:main_module|CharacterRegisters:character_registers|x_out[2]                                          ; Merged with MainModule:main_module|CharacterRegisters:character_registers|x_out[0]                                                ;
+; MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[2,4..7]                       ; Merged with MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[0]                                  ;
+; MainModule:main_module|CharacterRegisters:character_registers|pacman_y_coordinate[0,2,4..6]                     ; Merged with MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[0]                                  ;
+; MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[3]                            ; Merged with MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[1]                                  ;
+; MainModule:main_module|CharacterRegisters:character_registers|pacman_y_coordinate[1,3]                          ; Merged with MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[1]                                  ;
+; MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[0]                            ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|CharacterRegisters:character_registers|x_out[6]                                          ; Stuck at GND due to stuck port data_in                                                                                            ;
+; MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller|cur_sprite_x[2] ; Merged with MainModule:main_module|DisplayController:display_controller|CharacterDisplayController:cdc_controller|cur_sprite_x[2] ;
+; MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller|cur_sprite_x[1] ; Merged with MainModule:main_module|DisplayController:display_controller|CharacterDisplayController:cdc_controller|cur_sprite_x[1] ;
+; MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller|cur_sprite_x[0] ; Merged with MainModule:main_module|DisplayController:display_controller|CharacterDisplayController:cdc_controller|cur_sprite_x[0] ;
+; MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller|cur_sprite_y[0] ; Merged with MainModule:main_module|DisplayController:display_controller|CharacterDisplayController:cdc_controller|cur_sprite_y[0] ;
+; MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller|cur_sprite_y[1] ; Merged with MainModule:main_module|DisplayController:display_controller|CharacterDisplayController:cdc_controller|cur_sprite_y[1] ;
+; MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller|cur_sprite_y[2] ; Merged with MainModule:main_module|DisplayController:display_controller|CharacterDisplayController:cdc_controller|cur_sprite_y[2] ;
+; Total Number of Removed Registers = 94                                                                          ;                                                                                                                                   ;
++-----------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -393,9 +392,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------+
 ; MainModule:main_module|CharacterRegisters:character_registers|ghost4_y_coordinate[7] ; Stuck at GND              ; MainModule:main_module|CharacterRegisters:character_registers|pacman_y_coordinate[7] ;
 ;                                                                                      ; due to stuck port data_in ;                                                                                      ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[0] ; Stuck at GND              ; MainModule:main_module|CharacterRegisters:character_registers|x_out[0]               ;
-;                                                                                      ; due to stuck port data_in ;                                                                                      ;
-; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[7] ; Stuck at GND              ; MainModule:main_module|CharacterRegisters:character_registers|pacman_x_coordinate[7] ;
+; MainModule:main_module|CharacterRegisters:character_registers|ghost4_x_coordinate[6] ; Stuck at GND              ; MainModule:main_module|CharacterRegisters:character_registers|x_out[6]               ;
 ;                                                                                      ; due to stuck port data_in ;                                                                                      ;
 +--------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------+
 
@@ -405,30 +402,37 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 74    ;
-; Number of registers using Synchronous Clear  ; 41    ;
-; Number of registers using Synchronous Load   ; 1     ;
+; Total registers                              ; 103   ;
+; Number of registers using Synchronous Clear  ; 57    ;
+; Number of registers using Synchronous Load   ; 4     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 18    ;
+; Number of registers using Clock Enable       ; 33    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |Pacman|RateDivider:divider|cur_time[11]                                                                  ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |Pacman|RateDivider:divider|cur_time[4]                                                                   ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Pacman|MainModule:main_module|CharacterDisplayController:controller|character_type[2]                    ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |Pacman|vga_adapter:VGA|vga_controller:controller|yCounter[6]                                             ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Pacman|MainModule:main_module|CharacterDisplayController:controller|cur_sprite_y[2]                      ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; Yes        ; |Pacman|MainModule:main_module|CharacterRegisters:character_registers|x_out[6]                            ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |Pacman|MainModule:main_module|CharacterDisplayController:controller|cur_sprite_x[2]                      ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3|result_node[0] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |Pacman|RateDivider:divider|cur_time[19]                                                                                        ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |Pacman|RateDivider:divider|cur_time[1]                                                                                         ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |Pacman|MainModule:main_module|DisplayController:display_controller|current_time[3]                                             ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |Pacman|vga_adapter:VGA|vga_controller:controller|yCounter[0]                                                                   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Pacman|MainModule:main_module|CharacterRegisters:character_registers|y_out[3]                                                  ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 9 LEs                ; 6 LEs                  ; Yes        ; |Pacman|MainModule:main_module|CharacterRegisters:character_registers|x_out[0]                                                  ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Pacman|MainModule:main_module|DisplayController:display_controller|CharacterDisplayController:cdc_controller|character_type[1] ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |Pacman|MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller|map_y[2]                ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |Pacman|MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller|map_x[0]                ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Pacman|MainModule:main_module|DisplayController:display_controller|CharacterDisplayController:cdc_controller|cur_sprite_x[0]   ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Pacman|MainModule:main_module|DisplayController:display_controller|CharacterDisplayController:cdc_controller|cur_sprite_y[1]   ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Pacman|MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller|cur_sprite_x[1]         ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Pacman|MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller|cur_sprite_y[2]         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |Pacman|MainModule:main_module|CharacterRegisters:character_registers|x_out[1]                                                  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Pacman|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m6m1:auto_generated|mux_ifb:mux3|result_node[2]                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------+
@@ -1046,13 +1050,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+-------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "MainModule:main_module|CharacterDisplayController:controller" ;
-+------+-------+----------+----------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                        ;
-+------+-------+----------+----------------------------------------------------------------+
-; en   ; Input ; Info     ; Stuck at VCC                                                   ;
-+------+-------+----------+----------------------------------------------------------------+
++-----------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MainModule:main_module|DisplayController:display_controller" ;
++------+-------+----------+---------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                       ;
++------+-------+----------+---------------------------------------------------------------+
+; en   ; Input ; Info     ; Stuck at VCC                                                  ;
++------+-------+----------+---------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------+
@@ -1064,14 +1068,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------+-------+----------+------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "MainModule:main_module|MapController:map"                                                      ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port            ; Type   ; Severity ; Details                                                                             ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; sprite_data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; readwrite       ; Input  ; Info     ; Stuck at GND                                                                        ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "MainModule:main_module|MapController:map" ;
++-----------+-------+----------+---------------------------------------+
+; Port      ; Type  ; Severity ; Details                               ;
++-----------+-------+----------+---------------------------------------+
+; readwrite ; Input ; Info     ; Stuck at GND                          ;
++-----------+-------+----------+---------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -1079,7 +1082,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port     ; Type   ; Severity ; Details                                                                             ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
-; vga_x[7] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; vga_y[7] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
@@ -1116,52 +1118,47 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "vga_adapter:VGA"                                                                                                                         ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                   ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-; x    ; Input ; Warning  ; Input port expression (7 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "x[7..7]" will be connected to GND. ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 74                          ;
+; arriav_ff             ; 103                         ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 8                           ;
+;     ENA               ; 20                          ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     SCLR              ; 21                          ;
+;     ENA SLD           ; 3                           ;
+;     SCLR              ; 37                          ;
 ;     SLD               ; 1                           ;
-;     plain             ; 24                          ;
-; arriav_lcell_comb     ; 195                         ;
-;     arith             ; 80                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 66                          ;
-;         2 data inputs ; 9                           ;
-;         3 data inputs ; 4                           ;
-;     normal            ; 105                         ;
+;     plain             ; 22                          ;
+; arriav_lcell_comb     ; 266                         ;
+;     arith             ; 120                         ;
+;         0 data inputs ; 4                           ;
+;         1 data inputs ; 80                          ;
+;         2 data inputs ; 20                          ;
+;         3 data inputs ; 8                           ;
+;         4 data inputs ; 6                           ;
+;         5 data inputs ; 2                           ;
+;     normal            ; 136                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 9                           ;
-;         3 data inputs ; 14                          ;
-;         4 data inputs ; 34                          ;
-;         5 data inputs ; 19                          ;
-;         6 data inputs ; 24                          ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 12                          ;
+;         3 data inputs ; 23                          ;
+;         4 data inputs ; 31                          ;
+;         5 data inputs ; 27                          ;
+;         6 data inputs ; 39                          ;
 ;     shared            ; 10                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 6                           ;
 ;         3 data inputs ; 1                           ;
+; arriav_mac            ; 1                           ;
 ; boundary_port         ; 102                         ;
 ; generic_pll           ; 1                           ;
-; stratixv_ram_block    ; 9                           ;
+; stratixv_ram_block    ; 12                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.05                        ;
+; Max LUT depth         ; 5.60                        ;
+; Average LUT depth     ; 3.02                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1170,7 +1167,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -1180,11 +1177,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Standard Edition
-    Info: Processing started: Tue Mar 20 18:28:15 2018
+    Info: Processing started: Wed Mar 21 19:24:22 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Pacman -c Pacman
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file counter.v
-    Info (12023): Found entity 1: Counter File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Counter.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_pll.v
     Info (12023): Found entity 1: vga_pll File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/vga_adapter/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_controller.v
@@ -1210,6 +1205,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file mapcont
 Info (12021): Found 1 design units, including 1 entities, in source file hexdisplay.v
     Info (12023): Found entity 1: HexDisplay File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/HexDisplay.v Line: 1
 Info (12021): Found 0 design units, including 0 entities, in source file gamecontroller.v
+Info (12021): Found 1 design units, including 1 entities, in source file displaycontroller.v
+    Info (12023): Found entity 1: DisplayController File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/DisplayController.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file counter.v
+    Info (12023): Found entity 1: Counter File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Counter.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file characterregisters.v
     Info (12023): Found entity 1: CharacterRegisters File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterRegisters.v Line: 28
 Info (12021): Found 1 design units, including 1 entities, in source file characterdisplaycontroller.v
@@ -1273,8 +1272,7 @@ Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA
 Info (12128): Elaborating entity "RateDivider" for hierarchy "RateDivider:divider" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 85
 Info (12128): Elaborating entity "HexDisplay" for hierarchy "HexDisplay:hex0" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 92
 Info (12128): Elaborating entity "MainModule" for hierarchy "MainModule:main_module" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 110
-Warning (10034): Output port "debug_leds" at Pacman.v(122) has no driver File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 122
-Info (12128): Elaborating entity "MapController" for hierarchy "MainModule:main_module|MapController:map" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 140
+Info (12128): Elaborating entity "MapController" for hierarchy "MainModule:main_module|MapController:map" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 141
 Info (12128): Elaborating entity "Map" for hierarchy "MainModule:main_module|MapController:map|Map:map" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/MapController.v Line: 37
 Info (12128): Elaborating entity "altsyncram" for hierarchy "MainModule:main_module|MapController:map|Map:map|altsyncram:altsyncram_component" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Map.v Line: 86
 Info (12130): Elaborated megafunction instantiation "MainModule:main_module|MapController:map|Map:map|altsyncram:altsyncram_component" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Map.v Line: 86
@@ -1297,70 +1295,13 @@ Info (12133): Instantiated megafunction "MainModule:main_module|MapController:ma
 Warning (12125): Using design file db/altsyncram_4go1.tdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: altsyncram_4go1 File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/db/altsyncram_4go1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_4go1" for hierarchy "MainModule:main_module|MapController:map|Map:map|altsyncram:altsyncram_component|altsyncram_4go1:auto_generated" File: c:/quartus-17/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "CharacterRegisters" for hierarchy "MainModule:main_module|CharacterRegisters:character_registers" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 199
-Info (12128): Elaborating entity "CharacterDisplayController" for hierarchy "MainModule:main_module|CharacterDisplayController:controller" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 226
-Warning (10270): Verilog HDL Case Statement warning at CharacterDisplayController.v(106): incomplete case statement has no default case item File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 106
-Warning (10240): Verilog HDL Always Construct warning at CharacterDisplayController.v(77): inferring latch(es) for variable "row0", which holds its previous value in one or more paths through the always construct File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 77
-Warning (10240): Verilog HDL Always Construct warning at CharacterDisplayController.v(77): inferring latch(es) for variable "row1", which holds its previous value in one or more paths through the always construct File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 77
-Warning (10240): Verilog HDL Always Construct warning at CharacterDisplayController.v(77): inferring latch(es) for variable "row2", which holds its previous value in one or more paths through the always construct File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 77
-Warning (10240): Verilog HDL Always Construct warning at CharacterDisplayController.v(77): inferring latch(es) for variable "row3", which holds its previous value in one or more paths through the always construct File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 77
-Warning (10240): Verilog HDL Always Construct warning at CharacterDisplayController.v(77): inferring latch(es) for variable "row4", which holds its previous value in one or more paths through the always construct File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 77
-Warning (10240): Verilog HDL Always Construct warning at CharacterDisplayController.v(77): inferring latch(es) for variable "sprite_color", which holds its previous value in one or more paths through the always construct File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 77
-Info (10041): Inferred latch for "sprite_color[0]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "sprite_color[1]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "sprite_color[2]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row4[0]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row4[1]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row4[2]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row4[3]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row4[4]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row3[0]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row3[1]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row3[2]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row3[3]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row3[4]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row2[0]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row2[1]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row2[2]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row2[3]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row2[4]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row1[0]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row1[1]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row1[2]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row1[3]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row1[4]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row0[0]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row0[1]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row0[2]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row0[3]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Info (10041): Inferred latch for "row0[4]" at CharacterDisplayController.v(98) File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "MainModule:main_module|MapController:map|Map:map|altsyncram:altsyncram_component|altsyncram_4go1:auto_generated|q_a[0]" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/db/altsyncram_4go1.tdf Line: 37
-        Warning (14320): Synthesized away node "MainModule:main_module|MapController:map|Map:map|altsyncram:altsyncram_component|altsyncram_4go1:auto_generated|q_a[1]" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/db/altsyncram_4go1.tdf Line: 61
-        Warning (14320): Synthesized away node "MainModule:main_module|MapController:map|Map:map|altsyncram:altsyncram_component|altsyncram_4go1:auto_generated|q_a[2]" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/db/altsyncram_4go1.tdf Line: 85
-Warning (14026): LATCH primitive "MainModule:main_module|CharacterDisplayController:controller|row1[4]" is permanently enabled File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Warning (14026): LATCH primitive "MainModule:main_module|CharacterDisplayController:controller|row2[4]" is permanently enabled File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Warning (14026): LATCH primitive "MainModule:main_module|CharacterDisplayController:controller|row3[4]" is permanently enabled File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Warning (14026): LATCH primitive "MainModule:main_module|CharacterDisplayController:controller|row4[4]" is permanently enabled File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Warning (14026): LATCH primitive "MainModule:main_module|CharacterDisplayController:controller|row0[3]" is permanently enabled File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Warning (14026): LATCH primitive "MainModule:main_module|CharacterDisplayController:controller|row2[3]" is permanently enabled File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Warning (14026): LATCH primitive "MainModule:main_module|CharacterDisplayController:controller|row3[3]" is permanently enabled File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Warning (14026): LATCH primitive "MainModule:main_module|CharacterDisplayController:controller|row4[3]" is permanently enabled File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Warning (14026): LATCH primitive "MainModule:main_module|CharacterDisplayController:controller|row3[2]" is permanently enabled File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Warning (14026): LATCH primitive "MainModule:main_module|CharacterDisplayController:controller|row3[0]" is permanently enabled File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13012): Latch MainModule:main_module|CharacterDisplayController:controller|sprite_color[1] has unsafe behavior File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal MainModule:main_module|CharacterDisplayController:controller|character_type[0] File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 28
-    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal MainModule:main_module|CharacterDisplayController:controller|character_type[0] File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 28
-Warning (13012): Latch MainModule:main_module|CharacterDisplayController:controller|sprite_color[0] has unsafe behavior File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal MainModule:main_module|CharacterDisplayController:controller|character_type[0] File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 28
-    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal MainModule:main_module|CharacterDisplayController:controller|character_type[0] File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 28
-Warning (13012): Latch MainModule:main_module|CharacterDisplayController:controller|sprite_color[2] has unsafe behavior File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 98
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal MainModule:main_module|CharacterDisplayController:controller|character_type[0] File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 28
-    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal MainModule:main_module|CharacterDisplayController:controller|character_type[0] File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/CharacterDisplayController.v Line: 28
+Info (12128): Elaborating entity "CharacterRegisters" for hierarchy "MainModule:main_module|CharacterRegisters:character_registers" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 152
+Info (12128): Elaborating entity "DisplayController" for hierarchy "MainModule:main_module|DisplayController:display_controller" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 170
+Info (12128): Elaborating entity "CharacterDisplayController" for hierarchy "MainModule:main_module|DisplayController:display_controller|CharacterDisplayController:cdc_controller" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/DisplayController.v Line: 78
+Info (12128): Elaborating entity "MapDisplayController" for hierarchy "MainModule:main_module|DisplayController:display_controller|MapDisplayController:mdc_controller" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/DisplayController.v Line: 92
+Warning (10034): Output port "debug_leds" at MapDisplayController.v(18) has no driver File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/MapDisplayController.v Line: 18
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at VCC File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 19
     Warning (13410): Pin "LEDR[2]" is stuck at GND File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 19
     Warning (13410): Pin "LEDR[3]" is stuck at GND File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 19
     Warning (13410): Pin "LEDR[4]" is stuck at GND File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 19
@@ -1392,7 +1333,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3[6]" is stuck at GND File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 18
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 28
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 385 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_CS_N -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_DIN -entity DE1_SoC was ignored
@@ -1797,17 +1738,18 @@ Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 16
     Warning (15610): No output dependent on input pin "KEY[2]" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 16
     Warning (15610): No output dependent on input pin "KEY[3]" File: //SRVA/Homes$/kartonoe/Desktop/pacman-from-fpga/src/Pacman.v Line: 16
-Info (21057): Implemented 310 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 387 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 87 output pins
-    Info (21061): Implemented 198 logic cells
-    Info (21064): Implemented 9 RAM segments
+    Info (21061): Implemented 271 logic cells
+    Info (21064): Implemented 12 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 475 warnings
-    Info: Peak virtual memory: 731 megabytes
-    Info: Processing ended: Tue Mar 20 18:28:33 2018
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:25
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 443 warnings
+    Info: Peak virtual memory: 720 megabytes
+    Info: Processing ended: Wed Mar 21 19:24:41 2018
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:24
 
 
 +------------------------------------------+
