@@ -17,80 +17,10 @@ module MapDisplayController(
 	input clock_50,
 	output [7:0] debug_leds);
 	
-	
-	/*
-	module RateDivider(
-	input [27:0] interval,
-	input reset,
-	input en,
-	input clock_50,
-	output reg reduced_clock);
-	*/
-	
-//	wire [27:0] cur_sprite_x;
-//	wire [27:0] cur_sprite_y;
-//	wire [27:0] cur_max_x;
-//	wire [27:0] cur_max_y;
-//	
-//	Counter sprite_x_divider(
-//		.interval(28'd5), 
-//		.reset(reset), 
-//		.en(en), 
-//		.clock_50(clock_50), 
-//		.cur_time(cur_sprite_x));
-//		
-//	Counter sprite_y_divider(
-//		.interval(28'd5), 
-//		.reset(reset), 
-//		.en(en), 
-//		.clock_50(cur_sprite_x == 28'd5), 
-//		.cur_time(cur_sprite_y));
-//		
-//	Counter map_x_divider(
-//		.interval(28'd20), 
-//		.reset(reset), 
-//		.en(en), 
-//		.clock_50(cur_sprite_y == 28'd5), 
-//		.cur_time(cur_max_x));
-//		
-//	Counter map_y_divider(
-//		.interval(28'd20), 
-//		.reset(reset), 
-//		.en(en), 
-//		.clock_50(cur_max_x == 28'd20), 
-//		.cur_time(cur_max_y));
-//		
-//	wire [27:0] me;
-//	
-//	Counter my_counter(
-//		.interval(28'd4),
-//		.reset(reset),
-//		.en(1),
-//		.clock_50(clock_50),
-//		.cur_time(me)
-//		);
-//		
-//	assign map_x = cur_max_x[4:0];
-//	assign map_y = cur_max_y[4:0];
-//	
-//	wire [27:0] vga_x_long;
-//	wire [27:0] vga_y_long;
-//	assign vga_x_long	= (cur_max_x * 28'd5) + cur_sprite_x + 28'd1;
-//	assign vga_y_long = (cur_max_y * 28'd5) + cur_sprite_y + 28'd1;
-//	
-//	assign vga_x = vga_x_long[7:0];
-//	assign vga_y = vga_y_long[7:0];
-//	
-//	always @(posedge clock_50) 
-//	begin
-//		if (reset == 1'b1) 
-//		begin
-//			vga_plot <= 1'b1;
-//		end
-//	end
-	
 	reg [2:0] cur_sprite_x;
 	reg [2:0] cur_sprite_y;
+
+	assign debug_leds[4:0] = map_x;
 
 	always @(posedge clock_50) 
 	begin
@@ -100,15 +30,17 @@ module MapDisplayController(
 			map_y <= 5'd0;
 			cur_sprite_x <= 3'd0;
 			cur_sprite_y <= 3'd0;	
-			vga_plot <= 1'b1;
 		end
-		else if (en == 1'b1)
+		else //if (en == 1'b1)
 		begin
+
 			// If we are currently drawing the sprite
 			if (cur_sprite_y != 3'd4 || cur_sprite_x != 3'd4)
 			begin			
 				if(cur_sprite_x < 3'd4)
+				begin
 					cur_sprite_x <= cur_sprite_x + 3'd1;
+				end
 					
 				else if (cur_sprite_x == 3'd4)
 				begin
@@ -121,18 +53,17 @@ module MapDisplayController(
 			else 
 			begin
 				// Reset the current sprite coordinates
+				cur_sprite_x <= 3'd0;
+				cur_sprite_y <= 3'd0;
+
 				if (map_x == 5'd20)
 				begin
 					map_x <= 5'd0;
-					map_y <= map_y + 5'd1;
-					cur_sprite_x <= 3'd0;
-					cur_sprite_y <= 3'd0;	
+					map_y <= map_y + 5'd1;	
 				end
 				else 
 				begin
-					map_x <= map_x + 5'd1;	
-					cur_sprite_x <= 3'd0;
-					cur_sprite_y <= 3'd0;				
+					map_x <= map_x + 5'd1;					
 				end	
 			end		
 		end
@@ -141,8 +72,6 @@ module MapDisplayController(
 	
 
 	// Determine the absolute pixel coordinates on the screen
-//	assign vga_x = ({3'b000, map_x} * 8'd7) + {4'd00000, cur_sprite_x} + 8'd1;
-//	assign vga_y = ({3'b000, map_y} * 8'd7) + {4'd00000, cur_sprite_y} + 8'd1;
 	assign vga_x = ({3'b000, map_x} * 8'd5) + {4'd0, cur_sprite_x};
 	assign vga_y = ({3'b000, map_y} * 8'd5) + {4'd0, cur_sprite_y};
 
@@ -248,12 +177,15 @@ module MapDisplayController(
 	
 	always @(*)
 	begin
-		case (selected_col)
-			1'b1: vga_color = sprite_color;
-			1'b0: vga_color = 3'b000;
-		endcase
+		vga_color = sprite_color;
+		
+		if (selected_col == 1'b1 && reset == 1'b0)
+		begin
+			vga_plot = 1'b1;
+		end
+		else
+		begin
+			vga_plot = 1'b0;
+		end
 	end
-	
-	assign debug_leds[2:0] = vga_color;
-	assign debug_leds[5:3] = sprite_color;
 endmodule

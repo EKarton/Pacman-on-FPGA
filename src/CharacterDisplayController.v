@@ -32,15 +32,16 @@ module CharacterDisplayController(
 			character_type <= 3'd0;
 			cur_sprite_x <= 3'd0;
 			cur_sprite_y <= 3'd0;	
-			vga_plot <= 1'b1;
 		end
-		else if (en == 1'b1)
+		else //if (en == 1'b1)
 		begin
 			// If we are currently drawing the sprite
 			if (cur_sprite_y != 3'd4 || cur_sprite_x != 3'd4)
 			begin			
 				if(cur_sprite_x < 3'd4)
+				begin
 					cur_sprite_x <= cur_sprite_x + 3'd1;
+				end
 					
 				else if (cur_sprite_x == 3'd4)
 				begin
@@ -142,10 +143,16 @@ module CharacterDisplayController(
 	
 	always @(*)
 	begin
-		case (selected_col)
-			1'b1: vga_color = sprite_color;
-			1'b0: vga_color = 3'b000;
-		endcase
+		vga_color = sprite_color;
+
+		if (selected_col == 1'b1 && reset == 1'b0)
+		begin
+			vga_plot = 1'b1;
+		end
+		else
+		begin
+			vga_plot = 1'b0;
+		end
 	end
 
 endmodule

@@ -16,7 +16,7 @@ add wave {/*}
 #	input reset, 
 #	input clock_50);
 
-force {reset} 1 0ns, 0 10ns
+force {reset} 1 0ns, 0 100ns
 force {clock_50} 0 0ns, 1 5ns -r 10ns
 force {sprite_type} 3'b000
 force {en} 1
