@@ -2,7 +2,7 @@
 	A register used to store the coordinates (x, y) of pacman and the four ghosts.
 	Depending on the character_type, it will write/read coordinates of a character.
 
-	NOTE: The (x, y) coordinates stored are pixel coordinates! 
+	NOTE: The (x, y) coordinates stored are pixel coordinates!
 	To use them in object collision, perform the % operator!
 
 	The character_types definition (for the character_type pin):
@@ -22,22 +22,22 @@
 	- Ghost3: (2, 2)
 	- Ghost4: (2, 2)
 
-	The action of reading and writing will only happen when clock_50 reaches a 
+	The action of reading and writing will only happen when clock_50 reaches a
 	positive edge (i.e, value of clock_50 goes from 0 to 1.)
  */
 module CharacterRegisters(
 	input [7:0] x_in,
 	input [7:0] y_in,
+	input [7:0] pacman_x_coordinate,
+	input [7:0] pacman_y_coordinate,
 	output reg [7:0] x_out,
 	output reg [7:0] y_out,
 	input [2:0] character_type,
 	input readwrite,
 	input clock_50,
-	input reset
-	);
+	input reset);
 
-	reg [7:0] pacman_x_coordinate;
-	reg [7:0] pacman_y_coordinate;
+	//will not be able to write
 
 	reg [7:0] ghost1_x_coordinate;
 	reg [7:0] ghost1_y_coordinate;
@@ -51,13 +51,11 @@ module CharacterRegisters(
 	reg [7:0] ghost4_x_coordinate;
 	reg [7:0] ghost4_y_coordinate;
 
-	always @(posedge clock_50) 
+	always @(posedge clock_50)
 	begin
 		// If we are performing a reset
-		if (reset == 1'b1) 
+		if (reset == 1'b1)
 		begin
-			pacman_x_coordinate <= 8'd10;
-			pacman_y_coordinate <= 8'd10;
 
 			ghost1_x_coordinate <= 8'd40;
 			ghost1_y_coordinate <= 8'd35;
@@ -76,14 +74,9 @@ module CharacterRegisters(
 		else
 		begin
 			// If we are writing to the registers
-			if (readwrite == 1'b1) 
+			if (readwrite == 1'b1)
 			begin
-				if (character_type == 3'd0)
-				begin
-					pacman_x_coordinate <= x_in;
-					pacman_y_coordinate <= y_in;
-				end
-				else if (character_type == 3'd1)
+ 			if (character_type == 3'd1)
 				begin
 					ghost1_x_coordinate <= x_in;
 					ghost1_y_coordinate <= y_in;
@@ -106,7 +99,7 @@ module CharacterRegisters(
 			end
 
 			// If we are reading from the registers
-			else 
+			else
 			begin
 				if (character_type == 3'd0)
 				begin
@@ -133,13 +126,8 @@ module CharacterRegisters(
 					x_out <= ghost4_x_coordinate;
 					y_out <= ghost4_y_coordinate;
 				end
-				else 
-				begin
-					pacman_x_coordinate <= x_in;
-					pacman_y_coordinate <= y_in;
-				end				
 			end
-		end		
+		end
 	end
 
 endmodule

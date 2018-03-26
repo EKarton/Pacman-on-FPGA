@@ -6,33 +6,33 @@
 	The input pins (x, y) represents the x and y coordinates
  */
 module MapController(
-	input [4:0] map_x, 
-	input [4:0] map_y, 
-	input [2:0] sprite_data_in, 
-	output [2:0] sprite_data_out, 
-	input readwrite, 
+	input [4:0] map_x,
+	input [4:0] map_y,
+	input [2:0] sprite_data_in,
+	output [2:0] sprite_data_out,
+	input readwrite,
 	input clock_50);
 
 	wire [8:0] extended_map_x = {3'b000, map_x};
 
 	wire [8:0] extended_map_y = {3'b000, map_y};
-	
+
 
 	wire [8:0] client_address;
 	assign client_address = (9'd21 * extended_map_y) + extended_map_x;
-	
+
 	/*
-		address,
+	address,
 	clock,
 	data,
 	wren,
-	q);
+	q;
 	*/
 	Map map(
-		.address(client_address), 
-		.clock(clock_50), 
-		.data(sprite_data_in), 
-		.wren(readwrite), 
+		.address(client_address),
+		.clock(clock_50),
+		.data(sprite_data_in),
+		.wren(readwrite),
 		.q(sprite_data_out)
 		);
 
