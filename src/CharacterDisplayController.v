@@ -1,7 +1,7 @@
 /*
 	A module used to display the characters.
 
-	When en = 1, pacman_orientation is specified, reset was turned from 1 to 0, 
+	When en = 1, pacman_orientation is specified, reset was turned from 1 to 0,
 	clock_50 is set to the 50mhz clock; vga_color, vga_plot, vga_x, vga_y goes to VGA adapter;
 	char_x, char_y, and character_type goes to the CharacterRegisters,
 
@@ -9,23 +9,23 @@
 	(one pixel is drawn per clock cycle)
  */
 module CharacterDisplayController(
-	input en, 
+	input en,
 	input pacman_orientation,
-	output reg [2:0] character_type, 
+	output reg [2:0] character_type,
 	input unsigned [7:0] char_x,
 	input unsigned [7:0] char_y,
-	output reg vga_plot, 
+	output reg vga_plot,
 	output [7:0] vga_x,
 	output [7:0] vga_y,
 	output reg [2:0] vga_color,
-	input reset, 
+	input reset,
 	input clock_50);
 
 	// Drawing the pixels of each character and of each of their bitmaps
 	reg unsigned [2:0] cur_sprite_x;
 	reg unsigned [2:0] cur_sprite_y;
-	
-	// IS REQUIRED! There is a bug in Quartus where all registers must be 
+
+	// IS REQUIRED! There is a bug in Quartus where all registers must be
 	// initialized to a value regardless of clock cycle.
 	initial
 	begin
@@ -34,37 +34,37 @@ module CharacterDisplayController(
 		cur_sprite_y = 3'd0;
 	end
 
-	always @(posedge clock_50) 
+	always @(posedge clock_50)
 	begin
-		if (reset == 1'b1) 
+		if (reset == 1'b1)
 		begin
 			character_type <= 3'd0;
 			cur_sprite_x <= 3'd0;
-			cur_sprite_y <= 3'd0;	
+			cur_sprite_y <= 3'd0;
 		end
 		else //if (en == 1'b1)
 		begin
 			// If we are currently drawing the sprite
 			if (cur_sprite_y != 3'd4 || cur_sprite_x != 3'd4)
-			begin			
+			begin
 				if(cur_sprite_x < 3'd4)
 				begin
 					cur_sprite_x <= cur_sprite_x + 3'd1;
 				end
-					
+
 				else // if (cur_sprite_x == 3'd4)
 				begin
 					cur_sprite_x <= 3'd0;
 					cur_sprite_y <= cur_sprite_y + 3'd1;
 				end
 			end
-			
+
 			// If we have finished drawing the sprite
-			else 
+			else
 			begin
 				cur_sprite_x <= 3'd0;
 				cur_sprite_y <= 3'd0;
-				
+
 				if (character_type == 3'd3)
 				begin
 					character_type <= 3'd0;
@@ -72,10 +72,10 @@ module CharacterDisplayController(
 				else
 				begin
 					character_type <= character_type + 3'd1;
-				end		
-			end		
+				end
+			end
 		end
-	end	
+	end
 
 	// Determine the absolute pixel coordinates on the screen
 	assign vga_x = char_x + {5'd00000, cur_sprite_x} + 8'd26;
@@ -87,7 +87,7 @@ module CharacterDisplayController(
 	reg [4:0] row2;
 	reg [4:0] row3;
 	reg [4:0] row4;
-	
+
 	reg [2:0] sprite_color;
 
 	always @(*)
@@ -110,7 +110,7 @@ module CharacterDisplayController(
 				row3 = 5'b11100;
 				row4 = 5'b01110;
 			end
-			
+
 			sprite_color = 3'b110;
 		end
 		else // The ghosts
@@ -119,7 +119,7 @@ module CharacterDisplayController(
 			row1 = 5'b10101;
 			row2 = 5'b11111;
 			row3 = 5'b11111;
-			row4 = 5'b10101;		
+			row4 = 5'b10101;
 
 			case (character_type)
 				3'b001: sprite_color = 3'b011; // Cyan color
@@ -130,7 +130,7 @@ module CharacterDisplayController(
 			endcase
 		end
 	end
-	
+
 	reg [6:0] selected_row;
 	always @(*)
 	begin
@@ -144,7 +144,7 @@ module CharacterDisplayController(
 			default: selected_row = row0;
 		endcase
 	end
-	
+
 	reg selected_col;
 	always @(*)
 	begin
@@ -158,7 +158,7 @@ module CharacterDisplayController(
 			default: selected_col = selected_row[0];
 		endcase
 	end
-	
+
 	always @(*)
 	begin
 		vga_color = sprite_color;

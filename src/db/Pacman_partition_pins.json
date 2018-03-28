@@ -4,75 +4,7 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "LEDR[0]",
-					"strict" : false
-				},
-				{
-					"name" : "LEDR[1]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX2[0]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX2[1]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX2[2]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX2[3]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX2[4]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX2[5]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX2[6]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[0]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[1]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[2]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[3]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[4]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[5]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX1[6]",
-					"strict" : false
-				},
-				{
 					"name" : "HEX0[0]",
-					"strict" : false
-				},
-				{
-					"name" : "HEX0[1]",
 					"strict" : false
 				},
 				{
@@ -228,15 +160,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY[0]",
+					"name" : "CLOCK_50",
 					"strict" : false
 				},
 				{
 					"name" : "SW[9]",
-					"strict" : false
-				},
-				{
-					"name" : "CLOCK_50",
 					"strict" : false
 				}
 			]
