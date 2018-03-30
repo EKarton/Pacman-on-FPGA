@@ -105,7 +105,7 @@ module DisplayController(
 			end
 			
 			// Ghost 4
-			3'd4: begin
+			3'b100: begin
 				x_out = ghost4_vga_x;
 				y_out = ghost4_vga_y;
 			end

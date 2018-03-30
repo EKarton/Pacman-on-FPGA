@@ -65,7 +65,7 @@ module CharacterDisplayController(
 				cur_sprite_x <= 3'd0;
 				cur_sprite_y <= 3'd0;
 
-				if (character_type == 3'd3)
+				if (character_type == 3'd4)
 				begin
 					character_type <= 3'd0;
 				end
