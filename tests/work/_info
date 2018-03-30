@@ -7,268 +7,332 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d//SRVA/Homes$$/kartonoe/Desktop/pacman-from-fpga/tests
+Z0 d//SRVA/Homes$$/kartonoe/Desktop/pacman-from-fpga-2/tests
 vCharacterDisplayController
-!s110 1521670708
+!s110 1522256945
 !i10b 1
-!s100 =fYGnigU8aV>c8EoESdI12
-IORnA@:KIEaa6z=S?SUe3J0
+!s100 nCfHk`WS0bGVIMDIibWXR3
+IIDAmgFKF_YIoKaATaPHgU3
 Z1 VDg1SIo80bB@j0V0VzS_@n1
-R0
-w1521670518
+Z2 d//SRVA/Homes$$/kartonoe/Desktop/pacman-from-fpga-2/pacman-from-fpga-2/tests
+w1522255809
 8../src/CharacterDisplayController.v
 F../src/CharacterDisplayController.v
 L0 11
-Z2 OV;L;10.5b;63
+Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1521670708.000000
-!s107 ../src/CharacterDisplayController.v|
-!s90 -reportprogress|300|-timescale|1ns/1ns|../src/CharacterDisplayController.v|
+!s108 1522256945.000000
+!s107 ../src/CharacterDisplayController.v|../src/MapDisplayController.v|../src/DisplayController.v|
+!s90 -reportprogress|300|-timescale|1ns/1ns|../src/DisplayController.v|../src/MapDisplayController.v|../src/CharacterDisplayController.v|
 !i113 1
-Z3 o-timescale 1ns/1ns
-Z4 tCvgOpt 0
+Z4 o-timescale 1ns/1ns
+Z5 tCvgOpt 0
 n@character@display@controller
-vCharacterRegisters
-Z5 !s110 1521668321
+vcol_control
+Z6 !s110 1522192896
 !i10b 1
-!s100 QRQOM?kQ@eHQJTV?8_m8l0
-I3WP@cZ=DkRlTCCecclCfL1
+!s100 lME57ieTDia?P<XWKX;Yo1
+ImI4HTHS35obX4Lbz3SRUY1
 R1
 R0
-Z6 w1521585362
-8../src/CharacterRegisters.v
-F../src/CharacterRegisters.v
-L0 28
-R2
+Z7 w1522181482
+Z8 8../src/PacmanController.v
+Z9 F../src/PacmanController.v
+L0 213
+R3
 r1
 !s85 0
 31
-Z7 !s108 1521668321.000000
-Z8 !s107 ../src/verlog.v|../src/RateDivider.v|../src/PlayerScores.v|../src/Pacman.v|../src/Map_bb.v|../src/MapDisplayController.v|../src/MapController.v|../src/Map.v|../src/HexDisplay.v|../src/GameController.v|../src/DisplayController.v|../src/Counter.v|../src/CharacterRegisters.v|../src/CharacterDisplayController.v|
-Z9 !s90 -reportprogress|300|-timescale|1ns/1ns|../src/CharacterDisplayController.v|../src/CharacterRegisters.v|../src/Counter.v|../src/DisplayController.v|../src/GameController.v|../src/HexDisplay.v|../src/Map.v|../src/MapController.v|../src/MapDisplayController.v|../src/Map_bb.v|../src/Pacman.v|../src/PlayerScores.v|../src/RateDivider.v|../src/verlog.v|
+Z10 !s108 1522192895.000000
+Z11 !s107 ../src/RateDivider.v|../src/PlayerScores.v|../src/PacmanController.v|../src/Pacman.v|../src/Map_bb.v|../src/MapDisplayController.v|../src/MapController.v|../src/Map.v|../src/HexDisplay.v|../src/Ghost.v|../src/DisplayController.v|../src/Counter.v|../src/CharacterDisplayController.v|
+Z12 !s90 -reportprogress|300|-timescale|1ns/1ns|../src/CharacterDisplayController.v|../src/Counter.v|../src/DisplayController.v|../src/Ghost.v|../src/HexDisplay.v|../src/Map.v|../src/MapController.v|../src/MapDisplayController.v|../src/Map_bb.v|../src/Pacman.v|../src/PacmanController.v|../src/PlayerScores.v|../src/RateDivider.v|
 !i113 1
-R3
 R4
-n@character@registers
-vCounter
 R5
+vcol_datapath
+R6
+!i10b 1
+!s100 kz6f:FcLRgYS:6BV8Xi300
+Ig<H<bKEEz96@jE5`:@LaM2
+R1
+R0
+R7
+R8
+R9
+L0 141
+R3
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R4
+R5
+vCounter
+Z13 !s110 1522192895
 !i10b 1
 !s100 ]VHoOl]JUkifLcJZ6_XH63
 IUTBbAl^aP:EnEU@SVQ5je0
 R1
 R0
-R6
+w1522102922
 8../src/Counter.v
 F../src/Counter.v
 L0 1
-R2
+R3
 r1
 !s85 0
 31
-R7
-R8
-R9
+R10
+R11
+R12
 !i113 1
-R3
 R4
+R5
 n@counter
 vDisplayController
-Z10 !s110 1521669624
+Z14 !s110 1522259081
 !i10b 1
-!s100 YbZc?ggbWLFeV>k8GLj;Q1
-IH_fW6JcB??I=I^<HmN>^h1
+!s100 9>hG:KJ?VHa_gef4=:T6W0
+I<49fbD`Uh8Hc80h>?a1<91
 R1
-R0
-w1521667539
+R2
+w1522257775
 8../src/DisplayController.v
 F../src/DisplayController.v
 L0 2
-R2
+R3
 r1
 !s85 0
 31
-Z11 !s108 1521669623.000000
-Z12 !s107 ../src/CharacterDisplayController.v|../src/MapDisplayController.v|../src/DisplayController.v|
-Z13 !s90 -reportprogress|300|-timescale|1ns/1ns|../src/DisplayController.v|../src/MapDisplayController.v|../src/CharacterDisplayController.v|
+Z15 !s108 1522259081.000000
+Z16 !s107 ../src/DummyMapController.v|../src/MapDisplayController.v|../src/DisplayController.v|../src/Pacman.v|
+Z17 !s90 -reportprogress|300|-timescale|1ns/1ns|../src/Pacman.v|../src/DisplayController.v|../src/MapDisplayController.v|../src/DummyMapController.v|
 !i113 1
-R3
 R4
-n@display@controller
-vHexDisplay
 R5
+n@display@controller
+vGhost
+!s110 1522243036
+!i10b 1
+!s100 a??k8FH^c6NF;=^ZTW??E2
+I7i=iohd02fYXn6Md=1QgX2
+R1
+dC:/Users/Emilio K/Documents/School (Year 2)/CSC 258/Final Project/pacman-from-fpga-2/tests
+w1522242899
+8../src/Ghost.v
+F../src/Ghost.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1522243036.000000
+!s107 ../src/Ghost.v|
+!s90 -reportprogress|300|-timescale|1ns/1ns|../src/Ghost.v|
+!i113 1
+R4
+R5
+n@ghost
+vHexDisplay
+R13
 !i10b 1
 !s100 m]@g3FVUSkmY4;nX;YmZU1
 IM]B_N5iQhan<TP]@SV_Od1
 R1
 R0
-R6
+Z18 w1522102924
 8../src/HexDisplay.v
 F../src/HexDisplay.v
 L0 1
-R2
+R3
 r1
 !s85 0
 31
-R7
-R8
-R9
+R10
+R11
+R12
 !i113 1
-R3
 R4
+R5
 n@hex@display
 vMainModule
-R5
+R14
 !i10b 1
-!s100 6:o]fQHzdgfFIk=>P78z93
-I6LiLheK4`:B@o^iVXhYVX1
+!s100 ^=ZlXTXkKIX<GRB6X1R^?3
+IKmAJ14JcC4B^8ZJkEe>QW2
 R1
-R0
-Z14 w1521668306
-Z15 8../src/Pacman.v
-Z16 F../src/Pacman.v
-L0 114
 R2
+Z19 w1522259036
+Z20 8../src/Pacman.v
+Z21 F../src/Pacman.v
+L0 112
+R3
 r1
 !s85 0
 31
-R7
-R8
-R9
+R15
+R16
+R17
 !i113 1
-R3
 R4
+R5
 n@main@module
 vMap
-R5
+R13
 !i10b 1
 !s100 ?oHiCQkBC[KzNaLmZmZb40
 ILgEoG<NZaLC]3KGh>=]B>2
 R1
 R0
-R6
+R18
 8../src/Map_bb.v
 F../src/Map_bb.v
 L0 35
-R2
+R3
 r1
 !s85 0
 31
-R7
-R8
-R9
+R10
+R11
+R12
 !i113 1
-R3
 R4
+R5
 n@map
 vMapController
-R5
+R14
 !i10b 1
-!s100 fQClUD1_CoKO<V1Q>4<<Z2
-Ig=I8E;YkO@mAXH^O_f_ZI3
+!s100 mi=5`VhE[YQ?`Pmnd1S>11
+IXC??;LE22TC0WZ;^n_mKN1
 R1
-R0
-R6
-8../src/MapController.v
-F../src/MapController.v
-L0 8
 R2
+w1522255810
+8../src/DummyMapController.v
+F../src/DummyMapController.v
+L0 8
+R3
 r1
 !s85 0
 31
-R7
-R8
-R9
+R15
+R16
+R17
 !i113 1
-R3
 R4
+R5
 n@map@controller
 vMapDisplayController
-R10
+R14
 !i10b 1
-!s100 _CO3GIK5nBeK?]m`gP3820
-IjmWF<jn;<>]c0DoV6kLNM0
+!s100 G@HD0T@695G=ZL;5JR<651
+IE9j^CG_4aOF]6W9@<mn8:3
 R1
-R0
-w1521668664
+R2
+w1522255811
 8../src/MapDisplayController.v
 F../src/MapDisplayController.v
 L0 7
-R2
+R3
 r1
 !s85 0
 31
-R11
-R12
-R13
-!i113 1
-R3
-R4
-n@map@display@controller
-vPacman
-R5
-!i10b 1
-!s100 EPWehzd>9O2kSdm9>j`Fh1
-IjOg>9^R5^5IiAz;ei4YZS3
-R1
-R0
-R14
 R15
 R16
-L0 1
+R17
+!i113 1
+R4
+R5
+n@map@display@controller
+vPacman
+R14
+!i10b 1
+!s100 VYa:@Z@`7oi@5295@@]e60
+I[08i4JAGVohLT12d_ifXe3
+R1
 R2
+R19
+R20
+R21
+L0 1
+R3
 r1
 !s85 0
 31
+R15
+R16
+R17
+!i113 1
+R4
+R5
+n@pacman
+vPacmanController
+R6
+!i10b 1
+!s100 CZZ:_B58PlTc@V>nJi8D90
+IeWIBTjP;XGk14fBbnbkT03
+R1
+R0
 R7
 R8
 R9
-!i113 1
+L0 1
 R3
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
 R4
-n@pacman
-vPlayerScores
 R5
+n@pacman@controller
+vPlayerScores
+R6
 !i10b 1
 !s100 M>HzSTJ[K=[LD@94iC3Qo0
 I5eR[F<HRmmMKXC5i;W5z33
 R1
 R0
-w1521436926
+Z22 w1522102926
 8../src/PlayerScores.v
 F../src/PlayerScores.v
 L0 19
-R2
+R3
 r1
 !s85 0
 31
-R7
-R8
-R9
+R10
+R11
+R12
 !i113 1
-R3
 R4
+R5
 n@player@scores
 vRateDivider
-!s110 1521668322
+R6
 !i10b 1
 !s100 OKl>a>MBMIR40bY:13YjG1
 I]j:`X7lM[iFGg2OhCoPb?2
 R1
 R0
-R6
+R22
 8../src/RateDivider.v
 F../src/RateDivider.v
 L0 10
-R2
+R3
 r1
 !s85 0
 31
-R7
-R8
-R9
+R10
+R11
+R12
 !i113 1
-R3
 R4
+R5
 n@rate@divider

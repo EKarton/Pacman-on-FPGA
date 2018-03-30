@@ -1,0 +1,42 @@
+
+State Machine - |Pacman|MainModule:main_module|cur_state
+Name cur_state.END_GAME cur_state.STOP_DISPLAY cur_state.VIEW_DISPLAY cur_state.START_DISPLAY cur_state.GHOST4_SET_POS cur_state.GHOST4_WAIT cur_state.GHOST4_GET_MAP_SPRITE cur_state.GHOST4_GET_TARGET cur_state.GHOST3_SET_POS cur_state.GHOST3_WAIT cur_state.GHOST3_GET_MAP_SPRITE cur_state.GHOST3_GET_TARGET cur_state.GHOST2_SET_POS cur_state.GHOST2_WAIT cur_state.GHOST2_GET_MAP_SPRITE cur_state.GHOST2_GET_TARGET cur_state.GHOST1_SET_POS cur_state.GHOST1_WAIT cur_state.GHOST1_GET_MAP_SPRITE cur_state.GHOST1_GET_TARGET cur_state.PACMAN_SET_POS cur_state.PACMAN_WAIT cur_state.PACMAN_GET_MAP_SPRITE cur_state.PACMAN_TRY_EAT cur_state.PACMAN_EAT cur_state.PACMAN_EAT_WAIT cur_state.PACMAN_GET_TARGET 
+cur_state.PACMAN_GET_TARGET 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+cur_state.PACMAN_EAT_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+cur_state.PACMAN_EAT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+cur_state.PACMAN_TRY_EAT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+cur_state.PACMAN_GET_MAP_SPRITE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+cur_state.PACMAN_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+cur_state.PACMAN_SET_POS 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+cur_state.GHOST1_GET_TARGET 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+cur_state.GHOST1_GET_MAP_SPRITE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+cur_state.GHOST1_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST1_SET_POS 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST2_GET_TARGET 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST2_GET_MAP_SPRITE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST2_WAIT 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST2_SET_POS 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST3_GET_TARGET 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST3_GET_MAP_SPRITE 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST3_WAIT 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST3_SET_POS 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST4_GET_TARGET 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST4_GET_MAP_SPRITE 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST4_WAIT 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.GHOST4_SET_POS 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.START_DISPLAY 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.VIEW_DISPLAY 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.STOP_DISPLAY 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+cur_state.END_GAME 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |Pacman|MainModule:main_module|pacman_dy
+Name pacman_dy.00 pacman_dy.10 pacman_dy.01 
+pacman_dy.00 0 0 0 
+pacman_dy.01 1 0 1 
+pacman_dy.10 1 1 0 
+
+State Machine - |Pacman|MainModule:main_module|pacman_dx
+Name pacman_dx.00 pacman_dx.10 pacman_dx.01 
+pacman_dx.00 0 0 0 
+pacman_dx.01 1 0 1 
+pacman_dx.10 1 1 0 
