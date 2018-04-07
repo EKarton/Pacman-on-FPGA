@@ -1,10 +1,11 @@
 # Pacman from Verlog
 An FPGA version of Pacman! Without a computer, users can plug in their DE1-SoC Intel FPGAs to their monitors and play an amazing game of Pacman! Users can move Pacman with the four button keys on the FPGA. The user wins when Pacman has collected all of the yellow orbes. But the user needs to be careful; Pacman will die when he gets caught by one of the four ghosts! This project was made as a final course project for CSC 258: Computer Organization.
 
-![](images/pacman-on-fpga.png)
+![](images/pacman-on-fpga.jpg)
 
 ## Overview of the project
 This project was made with Verilog, a hardware description language, which was used to model the electronic systems on the FPGA. A video of our project can be seen below:
+
 [![Video of our project](https://github.com/ekarton/pacman-on-fpga/blob/master/images/video-of-pacman-on-fpga.jpg)](https://youtu.be/SUjFW8UTFgU)
 
 ## Getting Started
